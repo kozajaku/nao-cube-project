@@ -65,17 +65,17 @@ public class Recognizer {
             pixels[j] = Arrays.copyOfRange(pixelsSingle, j * w, (j + 1) * w);
         }
 
-        // testing purposes ----------------------------------------------------
-        FileOutput.writeOutput(h, w, pixels, "unmodified.png");
-        // testing preprocessing
-        int[][] redCapture = new int[h][w];
-        for (int i = 0; i < h; i++) {
-            for (int j = 0; j < w; j++) {
-                redCapture[i][j] = Common.isPixelRed(pixels[i][j]) ? pixels[i][j] : 0xffffffff;
-            }
-        }
-        FileOutput.writeOutput(h, w, redCapture, "redCapture.png");
-        // ---------------------------------------------------------------------
+//        // testing purposes ----------------------------------------------------
+//        FileOutput.writeOutput(h, w, pixels, "unmodified.png");
+//        // testing preprocessing
+//        int[][] redCapture = new int[h][w];
+//        for (int i = 0; i < h; i++) {
+//            for (int j = 0; j < w; j++) {
+//                redCapture[i][j] = Common.isPixelRed(pixels[i][j]) ? pixels[i][j] : 0xffffffff;
+//            }
+//        }
+//        FileOutput.writeOutput(h, w, redCapture, "redCapture.png");
+//        // ---------------------------------------------------------------------
         
         List<SubpictureBundle> subPictures = Preprocessing.findPossibleDice(pixels, h, w);
         int index = 0;

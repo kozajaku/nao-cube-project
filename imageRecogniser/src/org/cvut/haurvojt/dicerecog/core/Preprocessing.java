@@ -17,50 +17,50 @@ public class Preprocessing {
 
     private static final int MINIMUM_CLUSTER_SIDE = 120;
     
-    public static int[][] smoothen(int[][] pixels) {
-        int x = pixels.length - 1;
-        if (x <= 0) {
-            return null;
-        }
-        int y = pixels[0].length - 1;
-
-        int[][] smoothen = new int[pixels.length][pixels[0].length];
-
-        for (int i = 1; i < x; i++) {
-
-            for (int j = 1; j < y; j++) {
-
-                int[] neighbors = {pixels[i - 1][j], pixels[i + 1][j], pixels[i][j - 1], pixels[i][j + 1]};
-                int[] colorFilters = {0, 8, 16};
-                int newColor = 0xff000000;
-                for (int cF : colorFilters) {
-
-                    int part = (pixels[i][j] >> cF) & 0xff;
-                    int temp = part;
-                    for (int n : neighbors) {
-                        temp += ((n >> cF) & 0xff);
-                        temp += part;
-                    }
-                    temp /= (neighbors.length * 2 + 1);
-                    if (temp < 0) {
-                        temp = 0;
-                    }
-                    if (temp > 0xff) {
-                        newColor += 0xff << cF;
-                    } else {
-                        newColor += (temp << cF);
-
-                    }
-
-                }
-                smoothen[i][j] = newColor;
-
-            }
-
-        }
-        return smoothen;
-
-    }
+//    public static int[][] smoothen(int[][] pixels) {
+//        int x = pixels.length - 1;
+//        if (x <= 0) {
+//            return null;
+//        }
+//        int y = pixels[0].length - 1;
+//
+//        int[][] smoothen = new int[pixels.length][pixels[0].length];
+//
+//        for (int i = 1; i < x; i++) {
+//
+//            for (int j = 1; j < y; j++) {
+//
+//                int[] neighbors = {pixels[i - 1][j], pixels[i + 1][j], pixels[i][j - 1], pixels[i][j + 1]};
+//                int[] colorFilters = {0, 8, 16};
+//                int newColor = 0xff000000;
+//                for (int cF : colorFilters) {
+//
+//                    int part = (pixels[i][j] >> cF) & 0xff;
+//                    int temp = part;
+//                    for (int n : neighbors) {
+//                        temp += ((n >> cF) & 0xff);
+//                        temp += part;
+//                    }
+//                    temp /= (neighbors.length * 2 + 1);
+//                    if (temp < 0) {
+//                        temp = 0;
+//                    }
+//                    if (temp > 0xff) {
+//                        newColor += 0xff << cF;
+//                    } else {
+//                        newColor += (temp << cF);
+//
+//                    }
+//
+//                }
+//                smoothen[i][j] = newColor;
+//
+//            }
+//
+//        }
+//        return smoothen;
+//
+//    }
 
     public static List<SubpictureBundle> findPossibleDice(int[][] pixels, int height, int width) {
         List<DiceCluster> processingClusters = new ArrayList<>();
@@ -142,24 +142,24 @@ public class Preprocessing {
 
     }
 
-    public static int[][] enlarge(int[][] image, int n) {
-
-        int h = n * image.length;
-        if (h < 1) {
-            throw new IllegalArgumentException("Height must be positive");
-        }
-        int w = n * image[0].length;
-
-        int[][] enlarged = new int[h][w];
-
-        for (int y = 0; y < h; y++) {
-            for (int x = 0; x < w; x++) {
-                enlarged[y][x] = image[y / n][x / n];
-            }
-        }
-
-        return enlarged;
-    }
+//    public static int[][] enlarge(int[][] image, int n) {
+//
+//        int h = n * image.length;
+//        if (h < 1) {
+//            throw new IllegalArgumentException("Height must be positive");
+//        }
+//        int w = n * image[0].length;
+//
+//        int[][] enlarged = new int[h][w];
+//
+//        for (int y = 0; y < h; y++) {
+//            for (int x = 0; x < w; x++) {
+//                enlarged[y][x] = image[y / n][x / n];
+//            }
+//        }
+//
+//        return enlarged;
+//    }
 
     private static boolean assignPointToDiceCluster(Point point, List<DiceCluster> diceClusters) {
         DiceCluster addedTo = null;
