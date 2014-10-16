@@ -1,0 +1,1 @@
+--name;test_cube;--timeout;20;--;/home/student/git/nao-cube-project/cube/build-host/sdk/bin/test_cube

@@ -1,0 +1,2 @@
+/home/student/git/nao-cube-project/cube/build-host/CMakeFiles/cube.dir
+/home/student/git/nao-cube-project/cube/build-host/CMakeFiles/test_cube.dir

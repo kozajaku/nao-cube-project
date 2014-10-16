@@ -1,0 +1,1 @@
+/usr/bin/c++   -g    CMakeFiles/cube.dir/main.cpp.o  -o sdk/bin/cube -rdynamic -Wl,-rpath,:::::::::::::: 

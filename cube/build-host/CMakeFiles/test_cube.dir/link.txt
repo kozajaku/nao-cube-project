@@ -1,0 +1,1 @@
+/usr/bin/c++   -g    CMakeFiles/test_cube.dir/test.cpp.o  -o sdk/bin/test_cube -rdynamic -Wl,-rpath,:::::::::::::: 

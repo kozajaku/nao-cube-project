@@ -1,0 +1,14 @@
+[
+  {
+    "environment": null, 
+    "name": "test_cube", 
+    "cmd": [
+      "/home/student/git/nao-cube-project/cube/build-host/sdk/bin/test_cube"
+    ], 
+    "nightly": false, 
+    "gtest": false, 
+    "working_directory": null, 
+    "timeout": 20, 
+    "perf": false
+  }
+]
