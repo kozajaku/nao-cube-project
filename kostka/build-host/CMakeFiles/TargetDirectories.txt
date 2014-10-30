@@ -1,0 +1,2 @@
+/mnt/projekty/kostka/build-host/CMakeFiles/kostka.dir
+/mnt/projekty/kostka/build-host/CMakeFiles/test_kostka.dir

@@ -1,0 +1,14 @@
+[
+  {
+    "environment": null, 
+    "name": "test_kostka", 
+    "cmd": [
+      "/mnt/projekty/kostka/build-host/sdk/bin/test_kostka"
+    ], 
+    "nightly": false, 
+    "gtest": false, 
+    "working_directory": null, 
+    "timeout": 20, 
+    "perf": false
+  }
+]
