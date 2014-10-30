@@ -1,0 +1,1 @@
+--name;test_kostka;--timeout;20;--;/mnt/projekty/kostka/build-host/sdk/bin/test_kostka
