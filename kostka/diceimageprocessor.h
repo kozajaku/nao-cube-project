@@ -5,6 +5,8 @@ class DiceImageProcessor
 {
 public:
     DiceImageProcessor();
+private:
+
 };
 
 #endif // DICEIMAGEPROCESSOR_H

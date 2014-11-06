@@ -16,11 +16,11 @@ Mat HSVImageThresholder::thesholdImage(Mat imgHSV)
     if (hueFrom <= hueTo) {
         inRange(imgHSV, Scalar(hueFrom, saturationFrom, valueFrom), Scalar(hueTo, saturationTo, valueTo), imgThresholded);
     } else {
-        Mat imgTresh1;
-        Mat imgTresh2;
+        Mat imgThresh1;
+        Mat imgThresh2;
         inRange(imgHSV, Scalar(0, saturationFrom, valueFrom), Scalar(hueTo, saturationTo, valueTo), imgThresh1);
-        inRange(imgHSV, Scalar(hueFrom, saturationFrom, valueFrom), Scalar(179, saturationTo, valueTo), imgThresholded);
-        addWeighted(imgTresh1, 1, imgTresh2, 1, 0.0, imgThresholded);
+        inRange(imgHSV, Scalar(hueFrom, saturationFrom, valueFrom), Scalar(179, saturationTo, valueTo), imgThresh2);
+        addWeighted(imgThresh1, 1, imgThresh2, 1, 0.0, imgThresholded);
     }
     return imgThresholded;
 }

@@ -62,7 +62,7 @@ imwrite("obr.jpg", originalImg);
 Mat imgHSV;
 
 cvtColor(originalImg, imgHSV, COLOR_BGR2HSV); //Convert the captured frame from BGR to HSV
-
+/*
 Mat imgThresholded;
 
 inRange(imgHSV, Scalar(iLowH, iLowS, iLowV), Scalar(iHighH, iHighS, iHighV), imgThresholded); //Threshold the image
@@ -74,7 +74,7 @@ dilate( imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Siz
 //morphological closing (fill small holes in the foreground)
 dilate( imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
 erode(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
-
+*/
 /*
 imshow("Thresholded Image", imgThresholded); //show the thresholded image
 imshow("Original", imgOriginal); //show the original image

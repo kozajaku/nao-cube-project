@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/mnt/projekty/kostka/test.cpp
+/home/student/nao-dice-project/kostka/test.cpp
 iostream
 -
 
