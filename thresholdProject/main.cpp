@@ -5,7 +5,7 @@
 using namespace cv;
 using namespace std;
 
- int main( int argc, char** argv )
+ int main2( int argc, char** argv )
  {
    // VideoCapture cap(0); //capture the video from webcam
 
@@ -101,6 +101,7 @@ line(imgLines, Point(posX, posY), Point(iLastX, iLastY), Scalar(0,0,255), 2);
 iLastX = posX;
 iLastY = posY;
 }
+
 
 imshow("Thresholded Image", imgThresholded); //show the thresholded image
 

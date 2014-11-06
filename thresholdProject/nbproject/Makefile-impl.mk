@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=photoRecog
+PROJECTNAME=thresholdProject
 
 # Active Configuration
 DEFAULTCONF=Debug
