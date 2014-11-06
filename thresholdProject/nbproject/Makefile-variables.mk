@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=Cygwin-Windows
 CND_ARTIFACT_DIR_Debug=dist/Debug/Cygwin-Windows
-CND_ARTIFACT_NAME_Debug=photorecog
-CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin-Windows/photorecog
+CND_ARTIFACT_NAME_Debug=thresholdproject
+CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin-Windows/thresholdproject
 CND_PACKAGE_DIR_Debug=dist/Debug/Cygwin-Windows/package
-CND_PACKAGE_NAME_Debug=photorecog.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin-Windows/package/photorecog.tar
+CND_PACKAGE_NAME_Debug=thresholdproject.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin-Windows/package/thresholdproject.tar
 # Release configuration
 CND_PLATFORM_Release=Cygwin-Windows
 CND_ARTIFACT_DIR_Release=dist/Release/Cygwin-Windows
-CND_ARTIFACT_NAME_Release=photorecog
-CND_ARTIFACT_PATH_Release=dist/Release/Cygwin-Windows/photorecog
+CND_ARTIFACT_NAME_Release=thresholdproject
+CND_ARTIFACT_PATH_Release=dist/Release/Cygwin-Windows/thresholdproject
 CND_PACKAGE_DIR_Release=dist/Release/Cygwin-Windows/package
-CND_PACKAGE_NAME_Release=photorecog.tar
-CND_PACKAGE_PATH_Release=dist/Release/Cygwin-Windows/package/photorecog.tar
+CND_PACKAGE_NAME_Release=thresholdproject.tar
+CND_PACKAGE_PATH_Release=dist/Release/Cygwin-Windows/package/thresholdproject.tar
 #
 # include compiler specific variables
 #
