@@ -33,7 +33,7 @@ void thresh_callback(int, void*);
 /** @function main */
 int main(int argc, char** argv) {
     /// Load source image and convert it to gray
-    src = imread("test2.jpg", 1);
+    src = imread("obr3.jpg", 1);
 
     /// Convert image to gray and blur it
     //    cvtColor(src, src_gray, CV_BGR2GRAY);
