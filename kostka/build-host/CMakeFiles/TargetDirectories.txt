@@ -1,2 +1,2 @@
-/mnt/projekty/kostka/build-host/CMakeFiles/kostka.dir
-/mnt/projekty/kostka/build-host/CMakeFiles/test_kostka.dir
+/home/student/nao-dice-project/kostka/build-host/CMakeFiles/kostka.dir
+/home/student/nao-dice-project/kostka/build-host/CMakeFiles/test_kostka.dir

@@ -3,7 +3,7 @@
     "environment": null, 
     "name": "test_kostka", 
     "cmd": [
-      "/mnt/projekty/kostka/build-host/sdk/bin/test_kostka"
+      "/home/student/nao-dice-project/kostka/build-host/sdk/bin/test_kostka"
     ], 
     "nightly": false, 
     "gtest": false, 

@@ -5,51 +5,51 @@
       <Option title="kostka" />
       <Option makefile_is_custom="1" />
       <Option compiler="gcc" />
-      <Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\root\;CMake Files\..\..\..\root\.cache\;CMake Files\..\..\..\root\.cache\qi\;CMake Files\..\..\..\root\.cache\qi\toolchains\;CMake Files\..\..\..\root\.cache\qi\toolchains\host\;CMake Files\..\..\..\usr\;CMake Files\..\..\..\usr\local\;CMake Files\..\..\..\usr\local\share\;CMake Files\..\..\..\usr\local\share\cmake\;CMake Files\..\..\..\usr\local\share\cmake\qibuild\;CMake Files\..\..\..\usr\local\share\cmake\qibuild\internal\;CMake Files\build-host\;" />
+      <Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\root\;CMake Files\..\..\..\..\root\.cache\;CMake Files\..\..\..\..\root\.cache\qi\;CMake Files\..\..\..\..\root\.cache\qi\toolchains\;CMake Files\..\..\..\..\root\.cache\qi\toolchains\host\;CMake Files\..\..\..\..\usr\;CMake Files\..\..\..\..\usr\local\;CMake Files\..\..\..\..\usr\local\share\;CMake Files\..\..\..\..\usr\local\share\cmake\;CMake Files\..\..\..\..\usr\local\share\cmake\qibuild\;CMake Files\..\..\..\..\usr\local\share\cmake\qibuild\internal\;CMake Files\build-host\;" />
       <Build>
       <Target title="all">
-         <Option working_dir="/mnt/projekty/kostka/build-host" />
+         <Option working_dir="/home/student/nao-dice-project/kostka/build-host" />
          <Option type="4" />
          <MakeCommands>
-            <Build command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 all" />
-            <CompileFile command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
-            <Clean command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
-            <DistClean command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
+            <Build command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 all" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
          </MakeCommands>
       </Target>
       <Target title="edit_cache">
-         <Option working_dir="/mnt/projekty/kostka/build-host" />
+         <Option working_dir="/home/student/nao-dice-project/kostka/build-host" />
          <Option type="4" />
          <MakeCommands>
-            <Build command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 edit_cache" />
-            <CompileFile command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
-            <Clean command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
-            <DistClean command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
+            <Build command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 edit_cache" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
          </MakeCommands>
       </Target>
       <Target title="install">
-         <Option working_dir="/mnt/projekty/kostka/build-host" />
+         <Option working_dir="/home/student/nao-dice-project/kostka/build-host" />
          <Option type="4" />
          <MakeCommands>
-            <Build command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 install" />
-            <CompileFile command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
-            <Clean command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
-            <DistClean command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
+            <Build command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 install" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
          </MakeCommands>
       </Target>
       <Target title="install/local">
-         <Option working_dir="/mnt/projekty/kostka/build-host" />
+         <Option working_dir="/home/student/nao-dice-project/kostka/build-host" />
          <Option type="4" />
          <MakeCommands>
-            <Build command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 install/local" />
-            <CompileFile command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
-            <Clean command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
-            <DistClean command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
+            <Build command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 install/local" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
          </MakeCommands>
       </Target>
       <Target title="kostka">
-         <Option output="/mnt/projekty/kostka/build-host/sdk/bin/kostka" prefix_auto="0" extension_auto="0" />
-         <Option working_dir="/mnt/projekty/kostka/build-host" />
+         <Option output="/home/student/nao-dice-project/kostka/build-host/sdk/bin/kostka" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/student/nao-dice-project/kostka/build-host" />
          <Option object_output="./" />
          <Option type="1" />
          <Option compiler="gcc" />
@@ -57,15 +57,15 @@
             <Add directory="/opt/nao/naoqi-sdk-2.1.0.19-linux64/include" />
          </Compiler>
          <MakeCommands>
-            <Build command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 kostka" />
-            <CompileFile command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
-            <Clean command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
-            <DistClean command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
+            <Build command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 kostka" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
          </MakeCommands>
       </Target>
       <Target title="kostka/fast">
-         <Option output="/mnt/projekty/kostka/build-host/sdk/bin/kostka" prefix_auto="0" extension_auto="0" />
-         <Option working_dir="/mnt/projekty/kostka/build-host" />
+         <Option output="/home/student/nao-dice-project/kostka/build-host/sdk/bin/kostka" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/student/nao-dice-project/kostka/build-host" />
          <Option object_output="./" />
          <Option type="1" />
          <Option compiler="gcc" />
@@ -73,45 +73,45 @@
             <Add directory="/opt/nao/naoqi-sdk-2.1.0.19-linux64/include" />
          </Compiler>
          <MakeCommands>
-            <Build command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 kostka/fast" />
-            <CompileFile command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
-            <Clean command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
-            <DistClean command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
+            <Build command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 kostka/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
          </MakeCommands>
       </Target>
       <Target title="list_install_components">
-         <Option working_dir="/mnt/projekty/kostka/build-host" />
+         <Option working_dir="/home/student/nao-dice-project/kostka/build-host" />
          <Option type="4" />
          <MakeCommands>
-            <Build command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 list_install_components" />
-            <CompileFile command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
-            <Clean command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
-            <DistClean command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
+            <Build command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 list_install_components" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
          </MakeCommands>
       </Target>
       <Target title="rebuild_cache">
-         <Option working_dir="/mnt/projekty/kostka/build-host" />
+         <Option working_dir="/home/student/nao-dice-project/kostka/build-host" />
          <Option type="4" />
          <MakeCommands>
-            <Build command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 rebuild_cache" />
-            <CompileFile command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
-            <Clean command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
-            <DistClean command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
+            <Build command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 rebuild_cache" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
          </MakeCommands>
       </Target>
       <Target title="test">
-         <Option working_dir="/mnt/projekty/kostka/build-host" />
+         <Option working_dir="/home/student/nao-dice-project/kostka/build-host" />
          <Option type="4" />
          <MakeCommands>
-            <Build command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 test" />
-            <CompileFile command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
-            <Clean command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
-            <DistClean command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
+            <Build command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 test" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
          </MakeCommands>
       </Target>
       <Target title="test_kostka">
-         <Option output="/mnt/projekty/kostka/build-host/sdk/bin/test_kostka" prefix_auto="0" extension_auto="0" />
-         <Option working_dir="/mnt/projekty/kostka/build-host" />
+         <Option output="/home/student/nao-dice-project/kostka/build-host/sdk/bin/test_kostka" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/student/nao-dice-project/kostka/build-host" />
          <Option object_output="./" />
          <Option type="1" />
          <Option compiler="gcc" />
@@ -119,15 +119,15 @@
             <Add directory="/opt/nao/naoqi-sdk-2.1.0.19-linux64/include" />
          </Compiler>
          <MakeCommands>
-            <Build command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 test_kostka" />
-            <CompileFile command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
-            <Clean command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
-            <DistClean command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
+            <Build command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 test_kostka" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
          </MakeCommands>
       </Target>
       <Target title="test_kostka/fast">
-         <Option output="/mnt/projekty/kostka/build-host/sdk/bin/test_kostka" prefix_auto="0" extension_auto="0" />
-         <Option working_dir="/mnt/projekty/kostka/build-host" />
+         <Option output="/home/student/nao-dice-project/kostka/build-host/sdk/bin/test_kostka" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/student/nao-dice-project/kostka/build-host" />
          <Option object_output="./" />
          <Option type="1" />
          <Option compiler="gcc" />
@@ -135,96 +135,96 @@
             <Add directory="/opt/nao/naoqi-sdk-2.1.0.19-linux64/include" />
          </Compiler>
          <MakeCommands>
-            <Build command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 test_kostka/fast" />
-            <CompileFile command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
-            <Clean command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
-            <DistClean command="/usr/bin/make -f &quot;/mnt/projekty/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
+            <Build command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 test_kostka/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/student/nao-dice-project/kostka/build-host/Makefile&quot;  VERBOSE=1 clean" />
          </MakeCommands>
       </Target>
       </Build>
-      <Unit filename="/mnt/projekty/kostka/main.cpp">
+      <Unit filename="/home/student/nao-dice-project/kostka/main.cpp">
       </Unit>
-      <Unit filename="/mnt/projekty/kostka/test.cpp">
+      <Unit filename="/home/student/nao-dice-project/kostka/test.cpp">
       </Unit>
-      <Unit filename="/mnt/projekty/kostka/CMakeLists.txt">
+      <Unit filename="/home/student/nao-dice-project/kostka/CMakeLists.txt">
           <Option virtualFolder="CMake Files\" />
       </Unit>
-      <Unit filename="/mnt/projekty/kostka/../../../root/.cache/qi/toolchains/host/toolchain-host.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\root\.cache\qi\toolchains\host\" />
+      <Unit filename="/home/student/nao-dice-project/kostka/../../../../root/.cache/qi/toolchains/host/toolchain-host.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\root\.cache\qi\toolchains\host\" />
       </Unit>
-      <Unit filename="/mnt/projekty/kostka/../../../usr/local/share/cmake/qibuild/qibuild-config.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\usr\local\share\cmake\qibuild\" />
+      <Unit filename="/home/student/nao-dice-project/kostka/../../../../usr/local/share/cmake/qibuild/qibuild-config.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\cmake\qibuild\" />
       </Unit>
-      <Unit filename="/mnt/projekty/kostka/../../../usr/local/share/cmake/qibuild/general.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\usr\local\share\cmake\qibuild\" />
+      <Unit filename="/home/student/nao-dice-project/kostka/../../../../usr/local/share/cmake/qibuild/general.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\cmake\qibuild\" />
       </Unit>
-      <Unit filename="/mnt/projekty/kostka/../../../usr/local/share/cmake/qibuild/version.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\usr\local\share\cmake\qibuild\" />
+      <Unit filename="/home/student/nao-dice-project/kostka/../../../../usr/local/share/cmake/qibuild/version.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\cmake\qibuild\" />
       </Unit>
-      <Unit filename="/mnt/projekty/kostka/../../../usr/local/share/cmake/qibuild/log.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\usr\local\share\cmake\qibuild\" />
+      <Unit filename="/home/student/nao-dice-project/kostka/../../../../usr/local/share/cmake/qibuild/log.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\cmake\qibuild\" />
       </Unit>
-      <Unit filename="/mnt/projekty/kostka/../../../usr/local/share/cmake/qibuild/set.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\usr\local\share\cmake\qibuild\" />
+      <Unit filename="/home/student/nao-dice-project/kostka/../../../../usr/local/share/cmake/qibuild/set.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\cmake\qibuild\" />
       </Unit>
-      <Unit filename="/mnt/projekty/kostka/../../../usr/local/share/cmake/qibuild/subdirectory.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\usr\local\share\cmake\qibuild\" />
+      <Unit filename="/home/student/nao-dice-project/kostka/../../../../usr/local/share/cmake/qibuild/subdirectory.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\cmake\qibuild\" />
       </Unit>
-      <Unit filename="/mnt/projekty/kostka/../../../usr/local/share/cmake/qibuild/python.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\usr\local\share\cmake\qibuild\" />
+      <Unit filename="/home/student/nao-dice-project/kostka/../../../../usr/local/share/cmake/qibuild/python.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\cmake\qibuild\" />
       </Unit>
-      <Unit filename="/mnt/projekty/kostka/../../../usr/local/share/cmake/qibuild/find.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\usr\local\share\cmake\qibuild\" />
+      <Unit filename="/home/student/nao-dice-project/kostka/../../../../usr/local/share/cmake/qibuild/find.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\cmake\qibuild\" />
       </Unit>
-      <Unit filename="/mnt/projekty/kostka/../../../usr/local/share/cmake/qibuild/flags.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\usr\local\share\cmake\qibuild\" />
+      <Unit filename="/home/student/nao-dice-project/kostka/../../../../usr/local/share/cmake/qibuild/flags.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\cmake\qibuild\" />
       </Unit>
-      <Unit filename="/mnt/projekty/kostka/../../../usr/local/share/cmake/qibuild/tests.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\usr\local\share\cmake\qibuild\" />
+      <Unit filename="/home/student/nao-dice-project/kostka/../../../../usr/local/share/cmake/qibuild/tests.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\cmake\qibuild\" />
       </Unit>
-      <Unit filename="/mnt/projekty/kostka/../../../usr/local/share/cmake/qibuild/install.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\usr\local\share\cmake\qibuild\" />
+      <Unit filename="/home/student/nao-dice-project/kostka/../../../../usr/local/share/cmake/qibuild/install.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\cmake\qibuild\" />
       </Unit>
-      <Unit filename="/mnt/projekty/kostka/../../../usr/local/share/cmake/qibuild/target.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\usr\local\share\cmake\qibuild\" />
+      <Unit filename="/home/student/nao-dice-project/kostka/../../../../usr/local/share/cmake/qibuild/target.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\cmake\qibuild\" />
       </Unit>
-      <Unit filename="/mnt/projekty/kostka/../../../usr/local/share/cmake/qibuild/submodule.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\usr\local\share\cmake\qibuild\" />
+      <Unit filename="/home/student/nao-dice-project/kostka/../../../../usr/local/share/cmake/qibuild/submodule.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\cmake\qibuild\" />
       </Unit>
-      <Unit filename="/mnt/projekty/kostka/../../../usr/local/share/cmake/qibuild/stage.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\usr\local\share\cmake\qibuild\" />
+      <Unit filename="/home/student/nao-dice-project/kostka/../../../../usr/local/share/cmake/qibuild/stage.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\cmake\qibuild\" />
       </Unit>
-      <Unit filename="/mnt/projekty/kostka/../../../usr/local/share/cmake/qibuild/option.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\usr\local\share\cmake\qibuild\" />
+      <Unit filename="/home/student/nao-dice-project/kostka/../../../../usr/local/share/cmake/qibuild/option.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\cmake\qibuild\" />
       </Unit>
-      <Unit filename="/mnt/projekty/kostka/../../../usr/local/share/cmake/qibuild/codegen.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\usr\local\share\cmake\qibuild\" />
+      <Unit filename="/home/student/nao-dice-project/kostka/../../../../usr/local/share/cmake/qibuild/codegen.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\cmake\qibuild\" />
       </Unit>
-      <Unit filename="/mnt/projekty/kostka/../../../usr/local/share/cmake/qibuild/gettext.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\usr\local\share\cmake\qibuild\" />
+      <Unit filename="/home/student/nao-dice-project/kostka/../../../../usr/local/share/cmake/qibuild/gettext.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\cmake\qibuild\" />
       </Unit>
-      <Unit filename="/mnt/projekty/kostka/../../../usr/local/share/cmake/qibuild/internal/layout.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\usr\local\share\cmake\qibuild\internal\" />
+      <Unit filename="/home/student/nao-dice-project/kostka/../../../../usr/local/share/cmake/qibuild/internal/layout.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\cmake\qibuild\internal\" />
       </Unit>
-      <Unit filename="/mnt/projekty/kostka/../../../usr/local/share/cmake/qibuild/internal/install.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\usr\local\share\cmake\qibuild\internal\" />
+      <Unit filename="/home/student/nao-dice-project/kostka/../../../../usr/local/share/cmake/qibuild/internal/install.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\cmake\qibuild\internal\" />
       </Unit>
-      <Unit filename="/mnt/projekty/kostka/../../../usr/local/share/cmake/qibuild/internal/glob.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\usr\local\share\cmake\qibuild\internal\" />
+      <Unit filename="/home/student/nao-dice-project/kostka/../../../../usr/local/share/cmake/qibuild/internal/glob.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\cmake\qibuild\internal\" />
       </Unit>
-      <Unit filename="/mnt/projekty/kostka/../../../usr/local/share/cmake/qibuild/internal/tests.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\usr\local\share\cmake\qibuild\internal\" />
+      <Unit filename="/home/student/nao-dice-project/kostka/../../../../usr/local/share/cmake/qibuild/internal/tests.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\cmake\qibuild\internal\" />
       </Unit>
-      <Unit filename="/mnt/projekty/kostka/../../../usr/local/share/cmake/qibuild/internal/stage.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\usr\local\share\cmake\qibuild\internal\" />
+      <Unit filename="/home/student/nao-dice-project/kostka/../../../../usr/local/share/cmake/qibuild/internal/stage.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\cmake\qibuild\internal\" />
       </Unit>
-      <Unit filename="/mnt/projekty/kostka/../../../usr/local/share/cmake/qibuild/internal/uselib.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\usr\local\share\cmake\qibuild\internal\" />
+      <Unit filename="/home/student/nao-dice-project/kostka/../../../../usr/local/share/cmake/qibuild/internal/uselib.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\cmake\qibuild\internal\" />
       </Unit>
-      <Unit filename="/mnt/projekty/kostka/../../../usr/local/share/cmake/qibuild/internal/list.cmake">
-          <Option virtualFolder="CMake Files\..\..\..\usr\local\share\cmake\qibuild\internal\" />
+      <Unit filename="/home/student/nao-dice-project/kostka/../../../../usr/local/share/cmake/qibuild/internal/list.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\cmake\qibuild\internal\" />
       </Unit>
-      <Unit filename="/mnt/projekty/kostka/build-host/dependencies.cmake">
+      <Unit filename="/home/student/nao-dice-project/kostka/build-host/dependencies.cmake">
           <Option virtualFolder="CMake Files\build-host\" />
       </Unit>
    </Project>

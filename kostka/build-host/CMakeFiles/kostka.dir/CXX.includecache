@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/mnt/projekty/kostka/main.cpp
+/home/student/nao-dice-project/kostka/main.cpp
 iostream
 -
 opencv2/imgproc/imgproc.hpp
-/mnt/projekty/kostka/opencv2/imgproc/imgproc.hpp
+/home/student/nao-dice-project/kostka/opencv2/imgproc/imgproc.hpp
 opencv2/opencv.hpp
 -
 alproxies/alvideodeviceproxy.h

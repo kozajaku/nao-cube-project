@@ -1,1 +1,1 @@
---name;test_kostka;--timeout;20;--;/mnt/projekty/kostka/build-host/sdk/bin/test_kostka
+--name;test_kostka;--timeout;20;--;/home/student/nao-dice-project/kostka/build-host/sdk/bin/test_kostka

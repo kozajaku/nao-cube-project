@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/projekty/kostka
+CMAKE_SOURCE_DIR = /home/student/nao-dice-project/kostka
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/projekty/kostka/build-host
+CMAKE_BINARY_DIR = /home/student/nao-dice-project/kostka/build-host
 
 # Include any dependencies generated for this target.
 include CMakeFiles/test_kostka.dir/depend.make
@@ -51,17 +51,17 @@ include CMakeFiles/test_kostka.dir/flags.make
 
 CMakeFiles/test_kostka.dir/test.cpp.o: CMakeFiles/test_kostka.dir/flags.make
 CMakeFiles/test_kostka.dir/test.cpp.o: ../test.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /mnt/projekty/kostka/build-host/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/student/nao-dice-project/kostka/build-host/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/test_kostka.dir/test.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/test_kostka.dir/test.cpp.o -c /mnt/projekty/kostka/test.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/test_kostka.dir/test.cpp.o -c /home/student/nao-dice-project/kostka/test.cpp
 
 CMakeFiles/test_kostka.dir/test.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test_kostka.dir/test.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /mnt/projekty/kostka/test.cpp > CMakeFiles/test_kostka.dir/test.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/student/nao-dice-project/kostka/test.cpp > CMakeFiles/test_kostka.dir/test.cpp.i
 
 CMakeFiles/test_kostka.dir/test.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test_kostka.dir/test.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /mnt/projekty/kostka/test.cpp -o CMakeFiles/test_kostka.dir/test.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/student/nao-dice-project/kostka/test.cpp -o CMakeFiles/test_kostka.dir/test.cpp.s
 
 CMakeFiles/test_kostka.dir/test.cpp.o.requires:
 .PHONY : CMakeFiles/test_kostka.dir/test.cpp.o.requires
@@ -114,6 +114,6 @@ CMakeFiles/test_kostka.dir/clean:
 .PHONY : CMakeFiles/test_kostka.dir/clean
 
 CMakeFiles/test_kostka.dir/depend:
-	cd /mnt/projekty/kostka/build-host && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/projekty/kostka /mnt/projekty/kostka /mnt/projekty/kostka/build-host /mnt/projekty/kostka/build-host /mnt/projekty/kostka/build-host/CMakeFiles/test_kostka.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/student/nao-dice-project/kostka/build-host && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/student/nao-dice-project/kostka /home/student/nao-dice-project/kostka /home/student/nao-dice-project/kostka/build-host /home/student/nao-dice-project/kostka/build-host /home/student/nao-dice-project/kostka/build-host/CMakeFiles/test_kostka.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/test_kostka.dir/depend
 

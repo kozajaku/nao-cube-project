@@ -1,0 +1,14 @@
+git clone https://github.com/kozajaku/nao-dice-project
+cd .../kostka
+qitoolchain create host /opt/nao/naoqi-sdk-2.1.0.19-linux64/toolchain.xml
+qibuild configure
+qibuild config --wizard
+1
+2
+y
+y
+y
+1
+n
+
+qibuild open
