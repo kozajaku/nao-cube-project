@@ -17,8 +17,15 @@ int iHighH = 179;
 int iLowS = 0;
 int iHighS = 85;
 
-int iLowV = 85;
+int iLowV = 40;
 int iHighV = 255;
+
+int bLowH = 30;
+int bHighH = 90;
+int bLowS = 110;
+int bHighS = 255;
+int bLowV = 0;
+int bHighV = 255;
 
 int pLowH = 150;
 int pHighH = 30;
@@ -33,15 +40,135 @@ void thresh_callback(int, void*);
 /** @function main */
 int main(int argc, char** argv) {
     /// Load source image and convert it to gray
-    src = imread("obr3.jpg", 1);
+    src = imread("obrN10.jpg", 1);
 
     /// Convert image to gray and blur it
     //    cvtColor(src, src_gray, CV_BGR2GRAY);
-    //    blur(src_gray, src_gray, Size(3, 3));
+    //    blur(src, src, Size(3, 3));
+
+
 
     /// Create Window
-    char* source_window = "Source";
+    char source_window[] = "Source";
     namedWindow(source_window, CV_WINDOW_AUTOSIZE);
+
+    cvtColor(src, hsvImg, COLOR_BGR2HSV);
+    inRange(hsvImg, Scalar(bLowH, bLowS, bLowV), Scalar(bHighH, bHighS, bHighV), hsvThresholded);
+
+    Mat greenTh = hsvThresholded;
+    namedWindow("Green background", CV_WINDOW_AUTOSIZE);
+    imshow("Green background", greenTh);
+    
+    //get out background - set on green
+    
+    int minBound = 0;
+    int maxBound = hsvThresholded.cols;
+    
+    //row optimalization
+    for (int row = 0; row < hsvThresholded.rows; row++){
+        //find leftBound
+        unsigned char* data = hsvThresholded.ptr(row);
+        for (int col = 0; col < hsvThresholded.cols; col++){
+            if (*data != 0){
+                minBound = col;
+                break;
+            }
+            data++;
+        }
+        //find rightBound
+        data = hsvThresholded.ptr(row) + hsvThresholded.cols - 1;
+        for (int col = hsvThresholded.cols - 1; col >= 0; col--){
+            if (*data != 0){
+                maxBound = col;
+                break;
+            }
+            data--;
+        }
+        //adjust
+        if (maxBound - 20 <= minBound){
+            minBound += 22;
+        }
+        //set proper background
+        data = hsvThresholded.ptr(row);
+        for (int col = 0; col < hsvThresholded.cols; col++){
+            if (col < minBound || col > maxBound || *data != 0){
+                src.at<cv::Vec3b>(row, col)[0] = 0;
+                src.at<cv::Vec3b>(row, col)[1] = 255;
+                src.at<cv::Vec3b>(row, col)[2] = 0;
+            }
+            data++;
+        }
+    }
+    //col optimalization
+    cvtColor(src, hsvImg, COLOR_BGR2HSV);
+    inRange(hsvImg, Scalar(bLowH, bLowS, bLowV), Scalar(bHighH, bHighS, bHighV), hsvImg);
+    transpose(hsvImg, hsvThresholded);
+    minBound = 0;
+    maxBound = hsvThresholded.cols;
+    for (int row = 0; row < hsvThresholded.rows; row++){
+        //find leftBound
+        unsigned char* data = hsvThresholded.ptr(row);
+        for (int col = 0; col < hsvThresholded.cols; col++){
+            if (*data != 0){
+                minBound = col;
+                break;
+            }
+            data++;
+        }
+        //find rightBound
+        data = hsvThresholded.ptr(row) + hsvThresholded.cols - 1;
+        for (int col = hsvThresholded.cols - 1; col >= 0; col--){
+            if (*data != 0){
+                maxBound = col;
+                break;
+            }
+            data--;
+        }
+        //adjust
+        if (maxBound - 20 <= minBound){
+            minBound += 22;
+        }
+        //set proper background
+        data = hsvThresholded.ptr(row);
+        for (int col = 0; col < hsvThresholded.cols; col++){
+            if (col < minBound || col > maxBound || *data != 0){
+                src.at<cv::Vec3b>(col, row)[0] = 0;
+                src.at<cv::Vec3b>(col, row)[1] = 255;
+                src.at<cv::Vec3b>(col, row)[2] = 0;
+            }
+            data++;
+        }
+    }
+    
+    
+//    int minX = hsvThresholded.cols;
+//    int minY = hsvThresholded.rows;
+//    int maxX = 0;
+//    int maxY = 0;
+//
+//    for (int row = 0; row < hsvThresholded.rows; row++) {
+//        unsigned char* data = hsvThresholded.ptr(row);
+//        for (int col = 0; col < hsvThresholded.cols; col++) {
+//            if (*data != 0) {
+//                if (col < minX){
+//                    minX = col;
+//                }
+//                if (col > maxX){
+//                    maxX = col;
+//                }
+//                if (row < minY){
+//                    minY = row;
+//                }
+//                if (row > maxY){
+//                    maxY = row;
+//                }
+//            }
+//            data++;
+//        }
+//    }
+//    src = src.colRange(minX, maxX).rowRange(minY, maxY);
+//    hsvImg = hsvImg.colRange(minX, maxX).rowRange(minY, maxY);
+    cvtColor(src, hsvImg, COLOR_BGR2HSV);
     imshow(source_window, src);
 
 
@@ -70,7 +197,7 @@ int main(int argc, char** argv) {
 
 void hsvThreshold() {
     Mat pointThresholded;
-    cvtColor(src, hsvImg, COLOR_BGR2HSV); //Convert the captured frame from BGR to HSV
+    //    cvtColor(src, hsvImg, COLOR_BGR2HSV); //Convert the captured frame from BGR to HSV
     if (iLowH <= iHighH) {
         inRange(hsvImg, Scalar(iLowH, iLowS, iLowV), Scalar(iHighH, iHighS, iHighV), hsvThresholded);
     } else {
@@ -90,19 +217,19 @@ void hsvThreshold() {
         inRange(hsvImg, Scalar(pLowH, pLowS, pLowV), Scalar(179, pHighS, pHighV), imgThresh2);
         pointThresholded = imgThresh1 + imgThresh2;
     }
-    erode(hsvThresholded, hsvThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)));
-    dilate(hsvThresholded, hsvThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)));
+    erode(hsvThresholded, hsvThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 3)));
+    dilate(hsvThresholded, hsvThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 3)));
 
     //morphological closing (removes small holes from the foreground)
-    dilate(hsvThresholded, hsvThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)));
-    erode(hsvThresholded, hsvThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)));
+    dilate(hsvThresholded, hsvThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 3)));
+    erode(hsvThresholded, hsvThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 3)));
 
-    erode(pointThresholded, pointThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)));
-    dilate(pointThresholded, pointThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)));
+    erode(pointThresholded, pointThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 3)));
+    dilate(pointThresholded, pointThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 3)));
 
     //morphological closing (removes small holes from the foreground)
-    dilate(pointThresholded, pointThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)));
-    erode(pointThresholded, pointThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)));
+    dilate(pointThresholded, pointThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 3)));
+    erode(pointThresholded, pointThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 3)));
 
     namedWindow("Body thresholded", CV_WINDOW_AUTOSIZE);
     imshow("Body thresholded", hsvThresholded);
@@ -142,14 +269,12 @@ void thresh_callback(int, void*) {
 
     /// Draw contours + rotated rects + ellipses
     Mat drawing = Mat::zeros(hsvThresholded.size(), CV_8UC3);
-    cout << "=====================OUTPUT=========================" << endl;
     for (int i = 0; i < contours.size(); i++) {
         Scalar color = Scalar(rng.uniform(0, 255), rng.uniform(0, 255), rng.uniform(0, 255));
         // contour
         //        drawContours(drawing, contours, i, color, 1, 8, vector<Vec4i>(), 0, Point());
         // ellipse
         ellipse(drawing, minEllipse[i], color, 2, 8);
-        cout << minEllipse[i].size.width << " " << minEllipse[i].size.height << endl;
         // rotated rectangle
         //        Point2f rect_points[4];
         //        minRect[i].points(rect_points);
