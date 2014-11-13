@@ -553,3 +553,33 @@ Linking C executable cmTryCompileExec3848948492
 make[1]: Leaving directory '/home/student/nao-dice-project/kostka/build-host/CMakeFiles/CMakeTmp'
 
 
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /home/student/nao-dice-project/kostka/build-host/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec3151025143/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3151025143.dir/build.make CMakeFiles/cmTryCompileExec3151025143.dir/build
+make[1]: Entering directory '/home/student/nao-dice-project/kostka/build-host/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/student/nao-dice-project/kostka/build-host/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3151025143.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec3151025143.dir/CheckIncludeFiles.c.o   -c /home/student/nao-dice-project/kostka/build-host/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec3151025143
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3151025143.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec3151025143.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec3151025143 -rdynamic 
+make[1]: Leaving directory '/home/student/nao-dice-project/kostka/build-host/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/student/nao-dice-project/kostka/build-host/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec2587364277/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2587364277.dir/build.make CMakeFiles/cmTryCompileExec2587364277.dir/build
+make[1]: Entering directory '/home/student/nao-dice-project/kostka/build-host/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/student/nao-dice-project/kostka/build-host/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2587364277.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec2587364277.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.0/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2587364277
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2587364277.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec2587364277.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2587364277 -rdynamic -lpthread 
+make[1]: Leaving directory '/home/student/nao-dice-project/kostka/build-host/CMakeFiles/CMakeTmp'
+
+

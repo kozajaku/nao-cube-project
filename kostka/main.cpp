@@ -28,7 +28,7 @@ using namespace std;
       int fps = 5;
       // The subscriberID can be altered if other instances are already running
       subscriberID = cameraProxy.subscribe(subscriberID, AL::kVGA, AL::kBGRColorSpace, fps);
-      cameraProxy.setActiveCamera(subscriberID, 1); //1 - spodni kamera
+      cameraProxy.setActiveCamera(subscriberID, 0); //1 - spodni kamera
 
     //----
 /*
@@ -57,7 +57,7 @@ IplImage* img = cvCreateImage(cvSize(640, 480), IPL_DEPTH_8U, 3);
 memcpy(img->imageData, imageData, 640*480*3);
 //cvShowImage("xxx", img);
 Mat originalImg(img);
-imwrite("obr.jpg", originalImg);
+imwrite("obr0.jpg", originalImg);
 
 Mat imgHSV;
 
