@@ -32,13 +32,18 @@
   <confs>
     <conf name="Debug" type="1">
       <toolsSet>
-        <compilerSet>default</compilerSet>
+        <compilerSet>Cygwin|Cygwin</compilerSet>
         <dependencyChecking>true</dependencyChecking>
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <compileType>
         <ccTool>
           <commandlineTool>g++</commandlineTool>
+          <incDir>
+            <pElem>C:/cygwin/lib/gcc/x86_64-w64-mingw32/4.8.3/include/c++</pElem>
+            <pElem>C:/cygwin/lib/gcc/x86_64-w64-mingw32/4.8.3/include</pElem>
+            <pElem>C:/cygwin/lib/gcc/x86_64-w64-mingw32/4.8.3/include/ssp</pElem>
+          </incDir>
           <commandLine>`pkg-config opencv --cflags`</commandLine>
         </ccTool>
         <linkerTool>

@@ -3,6 +3,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
+#include <vector>
 
 using namespace cv;
 using namespace std;
@@ -40,7 +41,7 @@ void thresh_callback(int, void*);
 /** @function main */
 int main(int argc, char** argv) {
     /// Load source image and convert it to gray
-    src = imread("obrN10.jpg", 1);
+    src = imread("obrN4.jpg", 1);
 
     /// Convert image to gray and blur it
     //    cvtColor(src, src_gray, CV_BGR2GRAY);
@@ -50,14 +51,14 @@ int main(int argc, char** argv) {
 
     /// Create Window
     char source_window[] = "Source";
-    namedWindow(source_window, CV_WINDOW_AUTOSIZE);
+//    namedWindow(source_window, CV_WINDOW_AUTOSIZE);
 
     cvtColor(src, hsvImg, COLOR_BGR2HSV);
     inRange(hsvImg, Scalar(bLowH, bLowS, bLowV), Scalar(bHighH, bHighS, bHighV), hsvThresholded);
 
     Mat greenTh = hsvThresholded;
-    namedWindow("Green background", CV_WINDOW_AUTOSIZE);
-    imshow("Green background", greenTh);
+//    namedWindow("Green background", CV_WINDOW_AUTOSIZE);
+//    imshow("Green background", greenTh);
     
     //get out background - set on green
     
@@ -231,17 +232,37 @@ void hsvThreshold() {
     dilate(pointThresholded, pointThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 3)));
     erode(pointThresholded, pointThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 3)));
 
-    namedWindow("Body thresholded", CV_WINDOW_AUTOSIZE);
-    imshow("Body thresholded", hsvThresholded);
+//    namedWindow("Body thresholded", CV_WINDOW_AUTOSIZE);
+//    imshow("Body thresholded", hsvThresholded);
 
-    namedWindow("Points thresholded", CV_WINDOW_AUTOSIZE);
-    imshow("Points thresholded", pointThresholded);
+//    namedWindow("Points thresholded", CV_WINDOW_AUTOSIZE);
+//    imshow("Points thresholded", pointThresholded);
 
     hsvThresholded = hsvThresholded - pointThresholded;
 
     /// Show in a window
-    namedWindow("Thresholded", CV_WINDOW_AUTOSIZE);
-    imshow("Thresholded", hsvThresholded);
+//    namedWindow("Thresholded", CV_WINDOW_AUTOSIZE);
+//    imshow("Thresholded", hsvThresholded);
+}
+
+RotatedRect countBetterFit(RotatedRect old){
+    RotatedRect newEllipse;
+    
+    int tmp = old.center.x;
+    if (tmp > 240){
+        tmp = 480 - tmp;
+    }
+    double xPerc = 0.0008125 * tmp + 0.805;
+    double yPerc = 0.0016667 * old.center.y + 0.5;
+    
+    newEllipse.size = Size2f(old.size.width * xPerc, old.size.height * yPerc);
+    if (old.center.x < 240){
+        newEllipse.center = Point2f(old.center.x - (old.size.width - newEllipse.size.width) / 2, old.center.y - (old.size.height - newEllipse.size.height) / 2);
+    } else {
+        newEllipse.center = Point2f(old.center.x + (old.size.width - newEllipse.size.width) / 2, old.center.y - (old.size.height - newEllipse.size.height) / 2);
+    }
+    
+    return newEllipse;
 }
 
 /** @function thresh_callback */
@@ -269,18 +290,50 @@ void thresh_callback(int, void*) {
 
     /// Draw contours + rotated rects + ellipses
     Mat drawing = Mat::zeros(hsvThresholded.size(), CV_8UC3);
+    RotatedRect die;
+    vector<RotatedRect> points;
     for (int i = 0; i < contours.size(); i++) {
         Scalar color = Scalar(rng.uniform(0, 255), rng.uniform(0, 255), rng.uniform(0, 255));
         // contour
         //        drawContours(drawing, contours, i, color, 1, 8, vector<Vec4i>(), 0, Point());
         // ellipse
-        ellipse(drawing, minEllipse[i], color, 2, 8);
+//        ellipse(drawing, minEllipse[i], color, 2, 8);
+        cout << minEllipse[i].size.width << " : " << minEllipse[i].size.height << endl;
+        if (minEllipse[i].size.width >= 45.0 && minEllipse[i].size.width <= 70.0 
+                && minEllipse[i].size.height >= 55.0 && minEllipse[i].size.height <= 90.0){
+            //possible die
+            die = minEllipse[i];
+        } else if (minEllipse[i].size.width >= 5.0 && minEllipse[i].size.width <= 13.0 
+                && minEllipse[i].size.height >= 8.0 && minEllipse[i].size.height <= 17.0){
+            //possible point
+            points.push_back(minEllipse[i]);
+        }
         // rotated rectangle
         //        Point2f rect_points[4];
         //        minRect[i].points(rect_points);
         //        for (int j = 0; j < 4; j++)
         //            line(drawing, rect_points[j], rect_points[(j + 1) % 4], color, 1, 8);
     }
+    //draw die
+    ellipse(drawing, die, Scalar(0,0,255), 3, 8);
+    RotatedRect empiricEllipse = countBetterFit(die);
+    ellipse(drawing, empiricEllipse, Scalar(0,255,255), 2, 8);
+    for (vector<RotatedRect>::iterator iter = points.begin(); iter != points.end();){
+        //check if it is inside
+        double dx = die.center.x - iter->center.x;
+        dx = dx < 0 ? dx * -1 : dx;
+        double dy = die.center.y - iter->center.y;
+        dy = dy < 0 ? dy * -1 : dy;
+        double max = die.size.width > die.size.height ? die.size.width : die.size.height;
+        max /= 2;
+        if (dx > max){
+            iter = points.erase(iter);
+            continue;
+        }
+        ellipse(drawing, *iter, Scalar(0,255,0), 2, 8);
+        iter++;
+    }
+    
     /// Show in a window
     namedWindow("Contours", CV_WINDOW_AUTOSIZE);
     imshow("Contours", drawing);
