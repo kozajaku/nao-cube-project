@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <vector>
+#include <cmath>
 
 using namespace cv;
 using namespace std;
@@ -41,8 +42,9 @@ void thresh_callback(int, void*);
 /** @function main */
 int main(int argc, char** argv) {
     /// Load source image and convert it to gray
-    src = imread("obrN4.jpg", 1);
+    src = imread("obrN1.jpg", 1);
 
+   
     /// Convert image to gray and blur it
     //    cvtColor(src, src_gray, CV_BGR2GRAY);
     //    blur(src, src, Size(3, 3));
@@ -154,8 +156,8 @@ int main(int argc, char** argv) {
 //                if (col < minX){
 //                    minX = col;
 //                }
-//                if (col > maxX){
-//                    maxX = col;
+//                if (col > maxX){ \
+//                    maxX = col; 
 //                }
 //                if (row < minY){
 //                    minY = row;
@@ -170,7 +172,7 @@ int main(int argc, char** argv) {
 //    src = src.colRange(minX, maxX).rowRange(minY, maxY);
 //    hsvImg = hsvImg.colRange(minX, maxX).rowRange(minY, maxY);
     cvtColor(src, hsvImg, COLOR_BGR2HSV);
-    imshow(source_window, src);
+//    imshow(source_window, src);
 
 
 
@@ -194,6 +196,23 @@ int main(int argc, char** argv) {
 
     waitKey(0);
     return (0);
+}
+
+bool isInsideEllipse(RotatedRect inside, RotatedRect ellipse){
+    double x = inside.center.x;
+    double y = inside.center.y;
+    x -= ellipse.center.x;
+    y -= ellipse.center.y;
+    double rotation = - ellipse.angle;
+    rotation *= 3.14159 / 180.0;
+    double newX = x * cos(rotation) - y * sin(rotation);
+    double newY = x * sin(rotation) + y * cos(rotation);
+    newX = abs(newX);
+    newY = abs(newY);
+    if (newX <= ellipse.size.width / 2.0 && newY <= ellipse.size.height / 2.0){
+        return true;
+    }
+    return false;
 }
 
 void hsvThreshold() {
@@ -318,22 +337,22 @@ void thresh_callback(int, void*) {
     ellipse(drawing, die, Scalar(0,0,255), 3, 8);
     RotatedRect empiricEllipse = countBetterFit(die);
     ellipse(drawing, empiricEllipse, Scalar(0,255,255), 2, 8);
+    int counter = 0;
     for (vector<RotatedRect>::iterator iter = points.begin(); iter != points.end();){
         //check if it is inside
-        double dx = die.center.x - iter->center.x;
-        dx = dx < 0 ? dx * -1 : dx;
-        double dy = die.center.y - iter->center.y;
-        dy = dy < 0 ? dy * -1 : dy;
-        double max = die.size.width > die.size.height ? die.size.width : die.size.height;
-        max /= 2;
-        if (dx > max){
+        if (!isInsideEllipse(*iter, die)){
             iter = points.erase(iter);
             continue;
         }
-        ellipse(drawing, *iter, Scalar(0,255,0), 2, 8);
+        if (isInsideEllipse(*iter, empiricEllipse)){
+            counter++;
+            ellipse(drawing, *iter, Scalar(255,255,0), 2, 8);
+        } else {
+            ellipse(drawing, *iter, Scalar(0,255,0), 2, 8);
+        }
         iter++;
     }
-    
+    cout << "Result = " << counter << endl;    
     /// Show in a window
     namedWindow("Contours", CV_WINDOW_AUTOSIZE);
     imshow("Contours", drawing);
