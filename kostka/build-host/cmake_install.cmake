@@ -1,4 +1,4 @@
-# Install script for directory: /home/student/nao-dice-project/kostka
+# Install script for directory: /home/student/nao-projects/nao-dice-project/kostka
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -37,11 +37,11 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "runtime")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/student/nao-dice-project/kostka/build-host/CMakeFiles/CMakeRelink.dir/kostka")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/student/nao-projects/nao-dice-project/kostka/build-host/CMakeFiles/CMakeRelink.dir/kostka")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "test")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/student/nao-dice-project/kostka/build-host/CMakeFiles/CMakeRelink.dir/test_kostka")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/student/nao-projects/nao-dice-project/kostka/build-host/CMakeFiles/CMakeRelink.dir/test_kostka")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -50,7 +50,7 @@ else()
   set(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
 endif()
 
-file(WRITE "/home/student/nao-dice-project/kostka/build-host/${CMAKE_INSTALL_MANIFEST}" "")
+file(WRITE "/home/student/nao-projects/nao-dice-project/kostka/build-host/${CMAKE_INSTALL_MANIFEST}" "")
 foreach(file ${CMAKE_INSTALL_MANIFEST_FILES})
-  file(APPEND "/home/student/nao-dice-project/kostka/build-host/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
+  file(APPEND "/home/student/nao-projects/nao-dice-project/kostka/build-host/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
 endforeach()

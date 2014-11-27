@@ -9,6 +9,8 @@
 #include <opencv2/opencv.hpp>
 #include <alproxies/alvideodeviceproxy.h>
 #include <alvision/alvisiondefinitions.h>
+#include "houghmain.cpp"
+#include <stdio.h>
 
 using namespace cv;
 using namespace std;
@@ -31,69 +33,39 @@ using namespace std;
       cameraProxy.setActiveCamera(subscriberID, 1); //1 - spodni kamera
 
     //----
-/*
-    while (true)
-    {
-        Mat imgOriginal;
+int resCount;
+Mat originalImg;
+for (int i = 0; i < 5; i++){
+    // Retrieve the current image.
+    AL::ALValue results;
+    results = cameraProxy.getImageRemote(subscriberID);
+    const unsigned char* imageData =  static_cast<const unsigned char*>(results[6].GetBinary());
 
-        bool bSuccess = cap.read(imgOriginal); // read a new frame from video
+    if (imageData == NULL) {
+        std::cerr << "Could not retrieve current image." << std::endl;
+        return 0;
+    }
+    IplImage* img = cvCreateImage(cvSize(640, 480), IPL_DEPTH_8U, 3);
+    memcpy(img->imageData, imageData, 640*480*3);
+    //cvShowImage("xxx", img);
+    originalImg = Mat(img);
 
-         if (!bSuccess) //if not success, break loop
-        {
-             cout << "Cannot read a frame from video stream" << endl;
-             break;
-        }
-*/
-// Retrieve the current image.
-AL::ALValue results;
-results = cameraProxy.getImageRemote(subscriberID);
-const unsigned char* imageData =  static_cast<const unsigned char*>(results[6].GetBinary());
 
-if (imageData == NULL) {
-  std::cerr << "Could not retrieve current image." << std::endl;
-  return 0;
+    Mat imgRGB;
+
+    cvtColor(originalImg, imgRGB, COLOR_BGR2RGB); //Convert the captured frame from BGR to RGB
+
+
+    resCount = findOutDieCount(imgRGB);
+    if (resCount != -1){
+        break;
+    }
+    printf("next try\n");
 }
-IplImage* img = cvCreateImage(cvSize(640, 480), IPL_DEPTH_8U, 3);
-memcpy(img->imageData, imageData, 640*480*3);
-//cvShowImage("xxx", img);
-Mat originalImg(img);
 imwrite("obrN10.jpg", originalImg);
 
-Mat imgHSV;
+printf("Padlo: %d\n", resCount);
 
-cvtColor(originalImg, imgHSV, COLOR_BGR2HSV); //Convert the captured frame from BGR to HSV
-/*
-Mat imgThresholded;
-
-inRange(imgHSV, Scalar(iLowH, iLowS, iLowV), Scalar(iHighH, iHighS, iHighV), imgThresholded); //Threshold the image
-
-//morphological opening (remove small objects from the foreground)
-erode(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
-dilate( imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
-
-//morphological closing (fill small holes in the foreground)
-dilate( imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
-erode(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
-*/
-/*
-imshow("Thresholded Image", imgThresholded); //show the thresholded image
-imshow("Original", imgOriginal); //show the original image
-
-        if (waitKey(30) == 27) //wait for 'esc' key press for 30ms. If 'esc' key is pressed, break loop
-       {
-            cout << "esc key is pressed by user" << endl;
-            break;
-       }
-    }
-
-    ;
-
-  if ( !cap.isOpened() )  // if not success, exit program
-  {
-       cout << "Cannot open the web cam" << endl;
-       return -1;
-  }
-  */
 cameraProxy.releaseImage(subscriberID);
 
 // Unsubscribe the V.M.

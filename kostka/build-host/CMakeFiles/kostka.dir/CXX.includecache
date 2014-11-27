@@ -6,16 +6,36 @@
 
 #IncludeRegexTransform: 
 
-/home/student/nao-dice-project/kostka/main.cpp
+/home/student/nao-projects/nao-dice-project/kostka/houghmain.cpp
+opencv2/imgproc/imgproc.hpp
+/home/student/nao-projects/nao-dice-project/kostka/opencv2/imgproc/imgproc.hpp
+iostream
+-
+stdio.h
+-
+stdlib.h
+-
+vector
+-
+cmath
+-
+string
+-
+
+/home/student/nao-projects/nao-dice-project/kostka/main.cpp
 iostream
 -
 opencv2/imgproc/imgproc.hpp
-/home/student/nao-dice-project/kostka/opencv2/imgproc/imgproc.hpp
+/home/student/nao-projects/nao-dice-project/kostka/opencv2/imgproc/imgproc.hpp
 opencv2/opencv.hpp
 -
 alproxies/alvideodeviceproxy.h
 -
 alvision/alvisiondefinitions.h
+-
+houghmain.cpp
+/home/student/nao-projects/nao-dice-project/kostka/houghmain.cpp
+stdio.h
 -
 
 /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/alproxies/alvideodeviceproxy.h
