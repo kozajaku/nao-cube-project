@@ -85,7 +85,7 @@ install/local/fast: install/local
 
 # Special rule for the target list_install_components
 list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\" \"runtime\" \"test\""
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\" \"runtime\""
 .PHONY : list_install_components
 
 # Special rule for the target list_install_components
@@ -101,16 +101,6 @@ rebuild_cache:
 # Special rule for the target rebuild_cache
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
-
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-.PHONY : test/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -144,47 +134,53 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named kostka
+# Target rules for targets named mybroker
 
 # Build rule for target.
-kostka: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 kostka
-.PHONY : kostka
+mybroker: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mybroker
+.PHONY : mybroker
 
 # fast build rule for target.
-kostka/fast:
-	$(MAKE) -f CMakeFiles/kostka.dir/build.make CMakeFiles/kostka.dir/build
-.PHONY : kostka/fast
+mybroker/fast:
+	$(MAKE) -f CMakeFiles/mybroker.dir/build.make CMakeFiles/mybroker.dir/build
+.PHONY : mybroker/fast
 
 # Manual pre-install relink rule for target.
-kostka/preinstall:
-	$(MAKE) -f CMakeFiles/kostka.dir/build.make CMakeFiles/kostka.dir/preinstall
-.PHONY : kostka/preinstall
+mybroker/preinstall:
+	$(MAKE) -f CMakeFiles/mybroker.dir/build.make CMakeFiles/mybroker.dir/preinstall
+.PHONY : mybroker/preinstall
 
-#=============================================================================
-# Target rules for targets named test_kostka
+dieModule.o: dieModule.cpp.o
+.PHONY : dieModule.o
 
-# Build rule for target.
-test_kostka: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test_kostka
-.PHONY : test_kostka
+# target to build an object file
+dieModule.cpp.o:
+	$(MAKE) -f CMakeFiles/mybroker.dir/build.make CMakeFiles/mybroker.dir/dieModule.cpp.o
+.PHONY : dieModule.cpp.o
 
-# fast build rule for target.
-test_kostka/fast:
-	$(MAKE) -f CMakeFiles/test_kostka.dir/build.make CMakeFiles/test_kostka.dir/build
-.PHONY : test_kostka/fast
+dieModule.i: dieModule.cpp.i
+.PHONY : dieModule.i
 
-# Manual pre-install relink rule for target.
-test_kostka/preinstall:
-	$(MAKE) -f CMakeFiles/test_kostka.dir/build.make CMakeFiles/test_kostka.dir/preinstall
-.PHONY : test_kostka/preinstall
+# target to preprocess a source file
+dieModule.cpp.i:
+	$(MAKE) -f CMakeFiles/mybroker.dir/build.make CMakeFiles/mybroker.dir/dieModule.cpp.i
+.PHONY : dieModule.cpp.i
+
+dieModule.s: dieModule.cpp.s
+.PHONY : dieModule.s
+
+# target to generate assembly for a file
+dieModule.cpp.s:
+	$(MAKE) -f CMakeFiles/mybroker.dir/build.make CMakeFiles/mybroker.dir/dieModule.cpp.s
+.PHONY : dieModule.cpp.s
 
 main.o: main.cpp.o
 .PHONY : main.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) -f CMakeFiles/kostka.dir/build.make CMakeFiles/kostka.dir/main.cpp.o
+	$(MAKE) -f CMakeFiles/mybroker.dir/build.make CMakeFiles/mybroker.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -192,7 +188,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) -f CMakeFiles/kostka.dir/build.make CMakeFiles/kostka.dir/main.cpp.i
+	$(MAKE) -f CMakeFiles/mybroker.dir/build.make CMakeFiles/mybroker.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -200,32 +196,32 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) -f CMakeFiles/kostka.dir/build.make CMakeFiles/kostka.dir/main.cpp.s
+	$(MAKE) -f CMakeFiles/mybroker.dir/build.make CMakeFiles/mybroker.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-test.o: test.cpp.o
-.PHONY : test.o
+recognition.o: recognition.cpp.o
+.PHONY : recognition.o
 
 # target to build an object file
-test.cpp.o:
-	$(MAKE) -f CMakeFiles/test_kostka.dir/build.make CMakeFiles/test_kostka.dir/test.cpp.o
-.PHONY : test.cpp.o
+recognition.cpp.o:
+	$(MAKE) -f CMakeFiles/mybroker.dir/build.make CMakeFiles/mybroker.dir/recognition.cpp.o
+.PHONY : recognition.cpp.o
 
-test.i: test.cpp.i
-.PHONY : test.i
+recognition.i: recognition.cpp.i
+.PHONY : recognition.i
 
 # target to preprocess a source file
-test.cpp.i:
-	$(MAKE) -f CMakeFiles/test_kostka.dir/build.make CMakeFiles/test_kostka.dir/test.cpp.i
-.PHONY : test.cpp.i
+recognition.cpp.i:
+	$(MAKE) -f CMakeFiles/mybroker.dir/build.make CMakeFiles/mybroker.dir/recognition.cpp.i
+.PHONY : recognition.cpp.i
 
-test.s: test.cpp.s
-.PHONY : test.s
+recognition.s: recognition.cpp.s
+.PHONY : recognition.s
 
 # target to generate assembly for a file
-test.cpp.s:
-	$(MAKE) -f CMakeFiles/test_kostka.dir/build.make CMakeFiles/test_kostka.dir/test.cpp.s
-.PHONY : test.cpp.s
+recognition.cpp.s:
+	$(MAKE) -f CMakeFiles/mybroker.dir/build.make CMakeFiles/mybroker.dir/recognition.cpp.s
+.PHONY : recognition.cpp.s
 
 # Help Target
 help:
@@ -236,17 +232,18 @@ help:
 	@echo "... edit_cache"
 	@echo "... install"
 	@echo "... install/local"
-	@echo "... kostka"
 	@echo "... list_install_components"
+	@echo "... mybroker"
 	@echo "... rebuild_cache"
-	@echo "... test"
-	@echo "... test_kostka"
+	@echo "... dieModule.o"
+	@echo "... dieModule.i"
+	@echo "... dieModule.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... test.o"
-	@echo "... test.i"
-	@echo "... test.s"
+	@echo "... recognition.o"
+	@echo "... recognition.i"
+	@echo "... recognition.s"
 .PHONY : help
 
 

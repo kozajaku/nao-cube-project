@@ -1,4 +1,4 @@
-#include "dieModule.h"
+#include "dieModule.hpp"
 
 #include <iostream>
 #include <alcommon/albroker.h>
@@ -40,9 +40,9 @@ DieModule::DieModule(boost::shared_ptr<AL::ALBroker> broker,
 //  setReturn("boolean", "return true");
 //  BIND_METHOD(MyModule::returnTrue);
   
-  functionName("findOutDieCount", getName(), "Finds out thrown count on die");
+  functionName("findOutThrownCount", getName(), "Finds out thrown count on die");
   setReturn("int", "thrown count or -1 if failed");
-  BIND_METHOD(DieModule::findOutDieCount);
+  BIND_METHOD(DieModule::findOutThrownCount);
   // If you had other methods, you could bind them here...
   /**
    * Bound methods can only take const ref arguments of basic types,
@@ -50,11 +50,11 @@ DieModule::DieModule(boost::shared_ptr<AL::ALBroker> broker,
    */
 }
 
-MyModule::~MyModule()
+DieModule::~DieModule()
 {
 }
 
-void MyModule::init()
+void DieModule::init()
 {
   /**
    * Init is called just after construction.

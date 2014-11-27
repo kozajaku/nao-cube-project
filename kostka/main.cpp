@@ -74,7 +74,7 @@ int main(int argc, char** argv) {
 #include <stdlib.h>
 #include <qi/os.hpp>
 
-#include "mymodule.h"
+#include "dieModule.hpp"
 
 #include <alcommon/almodule.h>
 #include <alcommon/albroker.h>
@@ -178,7 +178,7 @@ int main(int argc, char* argv[])
 
   // Now it's time to load your module with
   // AL::ALModule::createModule<your_module>(<broker_create>, <your_module>);
-  AL::ALModule::createModule<MyModule>(broker, "DieModule");
+  AL::ALModule::createModule<DieModule>(broker, "DieModule");
 
   while (true)
     qi::os::sleep(1);

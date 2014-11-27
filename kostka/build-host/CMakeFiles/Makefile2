@@ -53,91 +53,47 @@ CMAKE_SOURCE_DIR = /home/student/nao-projects/nao-dice-project/kostka
 CMAKE_BINARY_DIR = /home/student/nao-projects/nao-dice-project/kostka/build-host
 
 #=============================================================================
-# Target rules for target CMakeFiles/kostka.dir
+# Target rules for target CMakeFiles/mybroker.dir
 
 # All Build rule for target.
-CMakeFiles/kostka.dir/all:
-	$(MAKE) -f CMakeFiles/kostka.dir/build.make CMakeFiles/kostka.dir/depend
-	$(MAKE) -f CMakeFiles/kostka.dir/build.make CMakeFiles/kostka.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/student/nao-projects/nao-dice-project/kostka/build-host/CMakeFiles  1
-	@echo "Built target kostka"
-.PHONY : CMakeFiles/kostka.dir/all
+CMakeFiles/mybroker.dir/all:
+	$(MAKE) -f CMakeFiles/mybroker.dir/build.make CMakeFiles/mybroker.dir/depend
+	$(MAKE) -f CMakeFiles/mybroker.dir/build.make CMakeFiles/mybroker.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/student/nao-projects/nao-dice-project/kostka/build-host/CMakeFiles  1 2 3
+	@echo "Built target mybroker"
+.PHONY : CMakeFiles/mybroker.dir/all
 
 # Include target in all.
-all: CMakeFiles/kostka.dir/all
+all: CMakeFiles/mybroker.dir/all
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/kostka.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/nao-projects/nao-dice-project/kostka/build-host/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/kostka.dir/all
+CMakeFiles/mybroker.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/nao-projects/nao-dice-project/kostka/build-host/CMakeFiles 3
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/mybroker.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/nao-projects/nao-dice-project/kostka/build-host/CMakeFiles 0
-.PHONY : CMakeFiles/kostka.dir/rule
+.PHONY : CMakeFiles/mybroker.dir/rule
 
 # Convenience name for target.
-kostka: CMakeFiles/kostka.dir/rule
-.PHONY : kostka
+mybroker: CMakeFiles/mybroker.dir/rule
+.PHONY : mybroker
 
 # Pre-install relink rule for target.
-CMakeFiles/kostka.dir/preinstall:
-	$(MAKE) -f CMakeFiles/kostka.dir/build.make CMakeFiles/kostka.dir/preinstall
-.PHONY : CMakeFiles/kostka.dir/preinstall
+CMakeFiles/mybroker.dir/preinstall:
+	$(MAKE) -f CMakeFiles/mybroker.dir/build.make CMakeFiles/mybroker.dir/preinstall
+.PHONY : CMakeFiles/mybroker.dir/preinstall
 
 # Prepare target for install.
-preinstall: CMakeFiles/kostka.dir/preinstall
+preinstall: CMakeFiles/mybroker.dir/preinstall
 .PHONY : preinstall
 
 # clean rule for target.
-CMakeFiles/kostka.dir/clean:
-	$(MAKE) -f CMakeFiles/kostka.dir/build.make CMakeFiles/kostka.dir/clean
-.PHONY : CMakeFiles/kostka.dir/clean
+CMakeFiles/mybroker.dir/clean:
+	$(MAKE) -f CMakeFiles/mybroker.dir/build.make CMakeFiles/mybroker.dir/clean
+.PHONY : CMakeFiles/mybroker.dir/clean
 
 # clean rule for target.
-clean: CMakeFiles/kostka.dir/clean
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/test_kostka.dir
-
-# All Build rule for target.
-CMakeFiles/test_kostka.dir/all:
-	$(MAKE) -f CMakeFiles/test_kostka.dir/build.make CMakeFiles/test_kostka.dir/depend
-	$(MAKE) -f CMakeFiles/test_kostka.dir/build.make CMakeFiles/test_kostka.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/student/nao-projects/nao-dice-project/kostka/build-host/CMakeFiles  2
-	@echo "Built target test_kostka"
-.PHONY : CMakeFiles/test_kostka.dir/all
-
-# Include target in all.
-all: CMakeFiles/test_kostka.dir/all
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/test_kostka.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/nao-projects/nao-dice-project/kostka/build-host/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/test_kostka.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/nao-projects/nao-dice-project/kostka/build-host/CMakeFiles 0
-.PHONY : CMakeFiles/test_kostka.dir/rule
-
-# Convenience name for target.
-test_kostka: CMakeFiles/test_kostka.dir/rule
-.PHONY : test_kostka
-
-# Pre-install relink rule for target.
-CMakeFiles/test_kostka.dir/preinstall:
-	$(MAKE) -f CMakeFiles/test_kostka.dir/build.make CMakeFiles/test_kostka.dir/preinstall
-.PHONY : CMakeFiles/test_kostka.dir/preinstall
-
-# Prepare target for install.
-preinstall: CMakeFiles/test_kostka.dir/preinstall
-.PHONY : preinstall
-
-# clean rule for target.
-CMakeFiles/test_kostka.dir/clean:
-	$(MAKE) -f CMakeFiles/test_kostka.dir/build.make CMakeFiles/test_kostka.dir/clean
-.PHONY : CMakeFiles/test_kostka.dir/clean
-
-# clean rule for target.
-clean: CMakeFiles/test_kostka.dir/clean
+clean: CMakeFiles/mybroker.dir/clean
 .PHONY : clean
 
 #=============================================================================

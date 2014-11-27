@@ -37,11 +37,7 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "runtime")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/student/nao-projects/nao-dice-project/kostka/build-host/CMakeFiles/CMakeRelink.dir/kostka")
-endif()
-
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "test")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/student/nao-projects/nao-dice-project/kostka/build-host/CMakeFiles/CMakeRelink.dir/test_kostka")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/student/nao-projects/nao-dice-project/kostka/build-host/CMakeFiles/CMakeRelink.dir/mybroker")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)

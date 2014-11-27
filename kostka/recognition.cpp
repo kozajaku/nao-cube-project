@@ -1,3 +1,6 @@
+#ifndef RECOGNITION
+#define RECOGNITION
+
 #include "opencv2/imgproc/imgproc.hpp"
 #include <iostream>
 #include <stdio.h>
@@ -284,3 +287,4 @@ void hsvThreshold() {
 }
 
 
+#endif //RECOGNITION
