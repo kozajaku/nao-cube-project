@@ -9,7 +9,6 @@
 using namespace cv;
 using namespace std;
 
-int wC = 1;
 
 Mat hsvImg;
 Mat hsvThresholded;
@@ -36,29 +35,22 @@ int pHighS = 255;
 int pLowV = 40;
 int pHighV = 255;
 
+int pointLowWidth = 5;
+int pointHighWidth = 20;
+int pointLowHeight = 8;
+int pointHighHeight = 22;
+
+int dieLowWidth = 45;
+int dieHighWidth = 70;
+int dieLowHeight = 50;
+int dieHighHeight = 90;
+
 /// Function headers
 int findOutDieCount(Mat &);
 bool isInsideEllipse(RotatedRect, RotatedRect);
 void hsvThreshold();
 RotatedRect countBetterFit(RotatedRect);
 
-/** @function main */
-/*
-int main(int argc, char** argv) {
-    /// Load source image and convert it to gray
-    string prefix = "obrN";
-    string postfix = ".jpg";
-    for (int i = 1; i <= 10; i++){
-        stringstream ss;
-        ss << prefix << i << postfix;
-        Mat src = imread(ss.str(), 1);
-        int res = findOutDieCount(src);
-        cout << "Result " << prefix << i << postfix << " = " << res << endl;
-    }
-    waitKey(0);
-    return 0;
-}
-*/
 int findOutDieCount(Mat & src) {
     cvtColor(src, hsvImg, COLOR_BGR2HSV);
     inRange(hsvImg, Scalar(bLowH, bLowS, bLowV), Scalar(bHighH, bHighS, bHighV), hsvThresholded);
@@ -172,13 +164,13 @@ int findOutDieCount(Mat & src) {
     for (int i = 0; i < contours.size(); i++) {
         // ellipse
         //        ellipse(drawing, minEllipse[i], color, 2, 8);
-                cout << minEllipse[i].size.width << " : " << minEllipse[i].size.height << endl;
-        if (minEllipse[i].size.width >= 45.0 && minEllipse[i].size.width <= 70.0
-                && minEllipse[i].size.height >= 50.0 && minEllipse[i].size.height <= 90.0) {
+//                cout << minEllipse[i].size.width << " : " << minEllipse[i].size.height << endl;
+        if (minEllipse[i].size.width >= dieLowWidth && minEllipse[i].size.width <= dieHighWidth
+                && minEllipse[i].size.height >= dieLowHeight && minEllipse[i].size.height <= dieHighHeight) {
             //possible die
             die = minEllipse[i];
-        } else if (minEllipse[i].size.width >= 5.0 && minEllipse[i].size.width <= 20.0
-                && minEllipse[i].size.height >= 8.0 && minEllipse[i].size.height <= 22.0) {
+        } else if (minEllipse[i].size.width >= pointLowWidth && minEllipse[i].size.width <= pointHighWidth
+                && minEllipse[i].size.height >= pointLowHeight && minEllipse[i].size.height <= pointHighHeight) {
             //possible point
             points.push_back(minEllipse[i]);
         }
@@ -209,10 +201,9 @@ int findOutDieCount(Mat & src) {
         counter = -1;
     }
     //===========================debug output===================================
-   /* ss << wC++ << " Result = " << counter;
-    namedWindow(ss.str(), CV_WINDOW_AUTOSIZE);
+    /*namedWindow(ss.str(), CV_WINDOW_AUTOSIZE);
     imshow(ss.str(), drawing);*/
-    imwrite("test.jpg", drawing);
+//    imwrite("test.jpg", drawing);
     //===========================/debug output==================================
     return counter;
 }
