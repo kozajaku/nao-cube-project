@@ -1,7 +1,7 @@
 #include "dieModule.hpp"
 
-#include <iostream>
-#include <alcommon/albroker.h>
+//#include <iostream>
+//#include <alcommon/albroker.h>
 
 DieModule::DieModule(boost::shared_ptr<AL::ALBroker> broker,
                    const std::string& name)

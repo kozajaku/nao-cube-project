@@ -1,10 +1,10 @@
 #ifndef MY_MODULE_H
-# define MY_MODULE_H
+#define MY_MODULE_H
 
 #include <iostream>
 #include <alcommon/almodule.h>
-#include "recognition.cpp"
-#include "opencv2/imgproc/imgproc.hpp"
+#include "recognition.hpp"
+//#include "opencv2/imgproc/imgproc.hpp"
 #include <opencv2/opencv.hpp>
 #include <alproxies/alvideodeviceproxy.h>
 #include <alvision/alvisiondefinitions.h>

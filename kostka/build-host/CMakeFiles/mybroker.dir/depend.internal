@@ -4,15 +4,12 @@
 CMakeFiles/mybroker.dir/dieModule.cpp.o
  /home/student/nao-projects/nao-dice-project/kostka/dieModule.cpp
  /home/student/nao-projects/nao-dice-project/kostka/dieModule.hpp
- /home/student/nao-projects/nao-dice-project/kostka/recognition.cpp
- /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/alcommon/albroker.h
+ /home/student/nao-projects/nao-dice-project/kostka/recognition.hpp
  /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/alcommon/alfunctor.h
  /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/alcommon/almethodinfo.h
  /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/alcommon/almodule.h
  /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/alcommon/almodulecore.h
  /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/alcommon/almoduleinfo.h
- /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/alcommon/alproxy.h
- /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/alcommon/alproxy.hxx
  /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/alcommon/api.h
  /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/alerror/alerror.h
  /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/alerror/config.h
@@ -203,7 +200,6 @@ CMakeFiles/mybroker.dir/dieModule.cpp.o
  /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/boost/function_types/function_pointer.hpp
  /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/boost/function_types/function_type.hpp
  /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/boost/function_types/is_callable_builtin.hpp
- /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/boost/function_types/is_member_function_pointer.hpp
  /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/boost/function_types/is_member_pointer.hpp
  /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/boost/function_types/member_function_pointer.hpp
  /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/boost/function_types/parameter_types.hpp
@@ -1098,10 +1094,6 @@ CMakeFiles/mybroker.dir/dieModule.cpp.o
  /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qi/trackable.hpp
  /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qi/traits.hpp
  /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qi/types.hpp
- /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qimessaging/api.hpp
- /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qimessaging/serviceinfo.hpp
- /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qimessaging/session.hpp
- /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qimessaging/url.hpp
  /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qitype/anyfunction.hpp
  /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qitype/anyobject.hpp
  /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qitype/anyreference.hpp
@@ -1126,7 +1118,6 @@ CMakeFiles/mybroker.dir/dieModule.cpp.o
  /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qitype/details/inttypeinterface.hxx
  /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qitype/details/listtypeinterface.hxx
  /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qitype/details/maptypeinterface.hxx
- /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qitype/details/objecttypebuilder.hxx
  /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qitype/details/pointertypeinterface.hxx
  /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qitype/details/property.hxx
  /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qitype/details/signal.hxx
@@ -1143,7 +1134,6 @@ CMakeFiles/mybroker.dir/dieModule.cpp.o
  /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qitype/metaobject.hpp
  /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qitype/metaproperty.hpp
  /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qitype/metasignal.hpp
- /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qitype/objecttypebuilder.hpp
  /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qitype/property.hpp
  /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qitype/signal.hpp
  /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qitype/signature.hpp
@@ -1152,7 +1142,7 @@ CMakeFiles/mybroker.dir/dieModule.cpp.o
 CMakeFiles/mybroker.dir/main.cpp.o
  /home/student/nao-projects/nao-dice-project/kostka/dieModule.hpp
  /home/student/nao-projects/nao-dice-project/kostka/main.cpp
- /home/student/nao-projects/nao-dice-project/kostka/recognition.cpp
+ /home/student/nao-projects/nao-dice-project/kostka/recognition.hpp
  /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/alcommon/albroker.h
  /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/alcommon/albrokermanager.h
  /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/alcommon/alfunctor.h
@@ -2300,6 +2290,7 @@ CMakeFiles/mybroker.dir/main.cpp.o
  /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qitype/typeobject.hpp
 CMakeFiles/mybroker.dir/recognition.cpp.o
  /home/student/nao-projects/nao-dice-project/kostka/recognition.cpp
+ /home/student/nao-projects/nao-dice-project/kostka/recognition.hpp
  /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/opencv2/core/core.hpp
  /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/opencv2/core/core_c.h
  /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/opencv2/core/mat.hpp

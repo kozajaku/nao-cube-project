@@ -1,10 +1,5 @@
-#ifndef RECOGNITION
-#define RECOGNITION
-
 #include "recognition.hpp"
 
-using namespace cv;
-using namespace std;
 
 
 int findOutDieCount(Mat & src) {
@@ -238,6 +233,3 @@ void hsvThreshold() {
 
     hsvThresholded = hsvThresholded - pointThresholded;
 }
-
-
-#endif //RECOGNITION

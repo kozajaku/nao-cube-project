@@ -9,6 +9,9 @@
 #include <cmath>
 #include <string>
 
+using namespace std;
+using namespace cv;
+
 Mat hsvImg;
 Mat hsvThresholded;
 int iLowH = 0;

@@ -3,15 +3,12 @@
 
 CMakeFiles/mybroker.dir/dieModule.cpp.o: ../dieModule.cpp
 CMakeFiles/mybroker.dir/dieModule.cpp.o: ../dieModule.hpp
-CMakeFiles/mybroker.dir/dieModule.cpp.o: ../recognition.cpp
-CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/alcommon/albroker.h
+CMakeFiles/mybroker.dir/dieModule.cpp.o: ../recognition.hpp
 CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/alcommon/alfunctor.h
 CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/alcommon/almethodinfo.h
 CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/alcommon/almodule.h
 CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/alcommon/almodulecore.h
 CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/alcommon/almoduleinfo.h
-CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/alcommon/alproxy.h
-CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/alcommon/alproxy.hxx
 CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/alcommon/api.h
 CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/alerror/alerror.h
 CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/alerror/config.h
@@ -202,7 +199,6 @@ CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/inc
 CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/boost/function_types/function_pointer.hpp
 CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/boost/function_types/function_type.hpp
 CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/boost/function_types/is_callable_builtin.hpp
-CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/boost/function_types/is_member_function_pointer.hpp
 CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/boost/function_types/is_member_pointer.hpp
 CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/boost/function_types/member_function_pointer.hpp
 CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/boost/function_types/parameter_types.hpp
@@ -1097,10 +1093,6 @@ CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/inc
 CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qi/trackable.hpp
 CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qi/traits.hpp
 CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qi/types.hpp
-CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qimessaging/api.hpp
-CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qimessaging/serviceinfo.hpp
-CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qimessaging/session.hpp
-CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qimessaging/url.hpp
 CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qitype/anyfunction.hpp
 CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qitype/anyobject.hpp
 CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qitype/anyreference.hpp
@@ -1125,7 +1117,6 @@ CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/inc
 CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qitype/details/inttypeinterface.hxx
 CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qitype/details/listtypeinterface.hxx
 CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qitype/details/maptypeinterface.hxx
-CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qitype/details/objecttypebuilder.hxx
 CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qitype/details/pointertypeinterface.hxx
 CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qitype/details/property.hxx
 CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qitype/details/signal.hxx
@@ -1142,7 +1133,6 @@ CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/inc
 CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qitype/metaobject.hpp
 CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qitype/metaproperty.hpp
 CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qitype/metasignal.hpp
-CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qitype/objecttypebuilder.hpp
 CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qitype/property.hpp
 CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qitype/signal.hpp
 CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qitype/signature.hpp
@@ -1151,7 +1141,7 @@ CMakeFiles/mybroker.dir/dieModule.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/inc
 
 CMakeFiles/mybroker.dir/main.cpp.o: ../dieModule.hpp
 CMakeFiles/mybroker.dir/main.cpp.o: ../main.cpp
-CMakeFiles/mybroker.dir/main.cpp.o: ../recognition.cpp
+CMakeFiles/mybroker.dir/main.cpp.o: ../recognition.hpp
 CMakeFiles/mybroker.dir/main.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/alcommon/albroker.h
 CMakeFiles/mybroker.dir/main.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/alcommon/albrokermanager.h
 CMakeFiles/mybroker.dir/main.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/alcommon/alfunctor.h
@@ -2299,6 +2289,7 @@ CMakeFiles/mybroker.dir/main.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/
 CMakeFiles/mybroker.dir/main.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/qitype/typeobject.hpp
 
 CMakeFiles/mybroker.dir/recognition.cpp.o: ../recognition.cpp
+CMakeFiles/mybroker.dir/recognition.cpp.o: ../recognition.hpp
 CMakeFiles/mybroker.dir/recognition.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/opencv2/core/core.hpp
 CMakeFiles/mybroker.dir/recognition.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/opencv2/core/core_c.h
 CMakeFiles/mybroker.dir/recognition.cpp.o: /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/opencv2/core/mat.hpp
