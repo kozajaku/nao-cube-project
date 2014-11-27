@@ -5,9 +5,7 @@ find_package(qibuild)
 
 # Create a executable named kostka
 # with the source file: main.cpp
-qi_create_bin(kostka "main.cpp")
-qi_use_lib(kostka ALCOMMON ALPROXIES OPENCV2_CORE OPENCV2_HIGHGUI OPENCV2_IMGPROC)
+qi_create_lib(mymodule SHARED ${_srcs} SUBFOLDER naoqi)
 
-# Add a simple test:
-enable_testing()
-qi_create_test(test_kostka "test.cpp")
+qi_use_lib(kostka ALCOMMON ALPROXIES BOOST OPENCV2_CORE OPENCV2_HIGHGUI OPENCV2_IMGPROC)
+
