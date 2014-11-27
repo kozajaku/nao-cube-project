@@ -204,9 +204,15 @@ int findOutDieCount(Mat & src) {
     }
     /// Show in a window
     stringstream ss;
+    if (counter < 1 || counter > 6){
+        //fail
+        counter = -1;
+    }
+    //===========================debug output===================================
     ss << wC++ << " Result = " << counter;
     namedWindow(ss.str(), CV_WINDOW_AUTOSIZE);
     imshow(ss.str(), drawing);
+    //===========================/debug output==================================
     return counter;
 }
 
