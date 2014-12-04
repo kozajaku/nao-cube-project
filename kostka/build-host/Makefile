@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/student/nao-projects/nao-dice-project/kostka
+CMAKE_SOURCE_DIR = /home/student/nao-dice-project/kostka
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/student/nao-projects/nao-dice-project/kostka/build-host
+CMAKE_BINARY_DIR = /home/student/nao-dice-project/kostka/build-host
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -83,6 +83,16 @@ install/local: preinstall
 install/local/fast: install/local
 .PHONY : install/local/fast
 
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: install/strip
+.PHONY : install/strip/fast
+
 # Special rule for the target list_install_components
 list_install_components:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\" \"runtime\""
@@ -104,9 +114,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/nao-projects/nao-dice-project/kostka/build-host/CMakeFiles /home/student/nao-projects/nao-dice-project/kostka/build-host/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/nao-dice-project/kostka/build-host/CMakeFiles /home/student/nao-dice-project/kostka/build-host/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/nao-projects/nao-dice-project/kostka/build-host/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/nao-dice-project/kostka/build-host/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -145,11 +155,6 @@ mybroker: cmake_check_build_system
 mybroker/fast:
 	$(MAKE) -f CMakeFiles/mybroker.dir/build.make CMakeFiles/mybroker.dir/build
 .PHONY : mybroker/fast
-
-# Manual pre-install relink rule for target.
-mybroker/preinstall:
-	$(MAKE) -f CMakeFiles/mybroker.dir/build.make CMakeFiles/mybroker.dir/preinstall
-.PHONY : mybroker/preinstall
 
 dieModule.o: dieModule.cpp.o
 .PHONY : dieModule.o
@@ -232,6 +237,7 @@ help:
 	@echo "... edit_cache"
 	@echo "... install"
 	@echo "... install/local"
+	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... mybroker"
 	@echo "... rebuild_cache"

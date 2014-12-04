@@ -1,14 +1,1 @@
-[
-  {
-    "environment": null, 
-    "name": "test_kostka", 
-    "cmd": [
-      "/home/student/nao-projects/nao-dice-project/kostka/build-host/sdk/bin/test_kostka"
-    ], 
-    "nightly": false, 
-    "gtest": false, 
-    "working_directory": null, 
-    "timeout": 20, 
-    "perf": false
-  }
-]
+[]

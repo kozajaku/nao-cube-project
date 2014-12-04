@@ -6,17 +6,17 @@
 
 #IncludeRegexTransform: 
 
-/home/student/nao-projects/nao-dice-project/kostka/dieModule.cpp
+/home/student/nao-dice-project/kostka/dieModule.cpp
 dieModule.hpp
-/home/student/nao-projects/nao-dice-project/kostka/dieModule.hpp
+/home/student/nao-dice-project/kostka/dieModule.hpp
 
-/home/student/nao-projects/nao-dice-project/kostka/dieModule.hpp
+/home/student/nao-dice-project/kostka/dieModule.hpp
 iostream
 -
 alcommon/almodule.h
 -
 recognition.hpp
-/home/student/nao-projects/nao-dice-project/kostka/recognition.hpp
+/home/student/nao-dice-project/kostka/recognition.hpp
 opencv2/opencv.hpp
 -
 alproxies/alvideodeviceproxy.h
@@ -24,21 +24,9 @@ alproxies/alvideodeviceproxy.h
 alvision/alvisiondefinitions.h
 -
 
-/home/student/nao-projects/nao-dice-project/kostka/recognition.hpp
-opencv2/imgproc/imgproc.hpp
-/home/student/nao-projects/nao-dice-project/kostka/opencv2/imgproc/imgproc.hpp
-iostream
--
-stdio.h
--
-stdlib.h
--
-vector
--
-cmath
--
-string
--
+/home/student/nao-dice-project/kostka/recognition.hpp
+opencv2/core/core.hpp
+/home/student/nao-dice-project/kostka/opencv2/core/core.hpp
 
 /opt/nao/naoqi-sdk-2.1.0.19-linux64/include/alcommon/alfunctor.h
 alcommon/api.h

@@ -78,6 +78,7 @@ int main(int argc, char** argv) {
 #include <alcommon/albroker.h>
 #include <alcommon/albrokermanager.h>
 
+
 int main(int argc, char* argv[])
 {
   // We will try to connect our broker to a running NAOqi
