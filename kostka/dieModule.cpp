@@ -115,4 +115,5 @@ int DieModule::findOutThrownCount(){
 
     // Unsubscribe the V.M.
     cameraProxy.unsubscribe(subscriberID);
+    return resCount;
 }
