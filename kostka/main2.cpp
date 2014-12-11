@@ -82,7 +82,7 @@ int main(int argc, char* argv[])
 {
   // We will try to connect our broker to a running NAOqi
   int pport = 9559;
-  std::string pip = "127.0.0.1";
+  std::string pip = "10.10.48.252";
 
   // command line parse option
   // check the number of arguments

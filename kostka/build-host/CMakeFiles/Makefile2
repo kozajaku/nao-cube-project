@@ -47,10 +47,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/student/nao-projects/nao-dice-project/kostka
+CMAKE_SOURCE_DIR = /home/student/nao-dice-project/kostka
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/student/nao-projects/nao-dice-project/kostka/build-host
+CMAKE_BINARY_DIR = /home/student/nao-dice-project/kostka/build-host
 
 #=============================================================================
 # Target rules for target CMakeFiles/mybroker.dir
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/student/nao-projects/nao-dice-project/kostka/build-host
 CMakeFiles/mybroker.dir/all:
 	$(MAKE) -f CMakeFiles/mybroker.dir/build.make CMakeFiles/mybroker.dir/depend
 	$(MAKE) -f CMakeFiles/mybroker.dir/build.make CMakeFiles/mybroker.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/student/nao-projects/nao-dice-project/kostka/build-host/CMakeFiles  1 2 3
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/student/nao-dice-project/kostka/build-host/CMakeFiles  1 2 3
 	@echo "Built target mybroker"
 .PHONY : CMakeFiles/mybroker.dir/all
 
@@ -69,23 +69,14 @@ all: CMakeFiles/mybroker.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/mybroker.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/nao-projects/nao-dice-project/kostka/build-host/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/nao-dice-project/kostka/build-host/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/mybroker.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/nao-projects/nao-dice-project/kostka/build-host/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/nao-dice-project/kostka/build-host/CMakeFiles 0
 .PHONY : CMakeFiles/mybroker.dir/rule
 
 # Convenience name for target.
 mybroker: CMakeFiles/mybroker.dir/rule
 .PHONY : mybroker
-
-# Pre-install relink rule for target.
-CMakeFiles/mybroker.dir/preinstall:
-	$(MAKE) -f CMakeFiles/mybroker.dir/build.make CMakeFiles/mybroker.dir/preinstall
-.PHONY : CMakeFiles/mybroker.dir/preinstall
-
-# Prepare target for install.
-preinstall: CMakeFiles/mybroker.dir/preinstall
-.PHONY : preinstall
 
 # clean rule for target.
 CMakeFiles/mybroker.dir/clean:

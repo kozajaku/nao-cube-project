@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/student/nao-projects/nao-dice-project/kostka/dieModule.cpp" "/home/student/nao-projects/nao-dice-project/kostka/build-host/CMakeFiles/mybroker.dir/dieModule.cpp.o"
-  "/home/student/nao-projects/nao-dice-project/kostka/main.cpp" "/home/student/nao-projects/nao-dice-project/kostka/build-host/CMakeFiles/mybroker.dir/main.cpp.o"
-  "/home/student/nao-projects/nao-dice-project/kostka/recognition.cpp" "/home/student/nao-projects/nao-dice-project/kostka/build-host/CMakeFiles/mybroker.dir/recognition.cpp.o"
+  "/home/student/nao-dice-project/kostka/dieModule.cpp" "/home/student/nao-dice-project/kostka/build-host/CMakeFiles/mybroker.dir/dieModule.cpp.o"
+  "/home/student/nao-dice-project/kostka/main.cpp" "/home/student/nao-dice-project/kostka/build-host/CMakeFiles/mybroker.dir/main.cpp.o"
+  "/home/student/nao-dice-project/kostka/recognition.cpp" "/home/student/nao-dice-project/kostka/build-host/CMakeFiles/mybroker.dir/recognition.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

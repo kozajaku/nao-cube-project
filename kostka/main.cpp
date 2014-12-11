@@ -5,12 +5,14 @@
 #include <alcommon/albroker.h>
 #include <alcommon/albrokermanager.h>
 
+
 // we're in a dll, so export the entry point
 #ifdef _WIN32
 # define ALCALL __declspec(dllexport)
 #else
 # define ALCALL
 #endif
+
 
 extern "C"
 {

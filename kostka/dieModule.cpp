@@ -107,7 +107,7 @@ int DieModule::findOutThrownCount(){
             break;
         }
     }
-    imwrite("obrN10.jpg", originalImg);
+    //imwrite("obrN10.jpg", originalImg);
 
     cout << "Thrown: " <<  resCount << endl;
 
@@ -115,4 +115,5 @@ int DieModule::findOutThrownCount(){
 
     // Unsubscribe the V.M.
     cameraProxy.unsubscribe(subscriberID);
+    return resCount;
 }

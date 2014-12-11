@@ -4,8 +4,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/mybroker.dir/dieModule.cpp.o"
   "sdk/bin/mybroker.pdb"
   "sdk/bin/mybroker"
-  "sdk/bin/mybroker.pdb"
-  "CMakeFiles/CMakeRelink.dir/mybroker"
 )
 
 # Per-language clean rules from dependency scanning.
