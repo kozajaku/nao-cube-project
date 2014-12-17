@@ -48,7 +48,7 @@ int main(int argc, char** argv) {
     /// Load source image and convert it to gray
     string prefix = "obrN";
     string postfix = ".jpg";
-    for (int i = 1; i <= 10; i++){
+    for (int i = 8; i <= 8; i++) {
         stringstream ss;
         ss << prefix << i << postfix;
         Mat src = imread(ss.str(), 1);
@@ -61,7 +61,10 @@ int main(int argc, char** argv) {
 
 int findOutDieCount(Mat & src) {
     cvtColor(src, hsvImg, COLOR_BGR2HSV);
+    imwrite("faze1.jpg", src);
     inRange(hsvImg, Scalar(bLowH, bLowS, bLowV), Scalar(bHighH, bHighS, bHighV), hsvThresholded);
+
+    imwrite("faze2.jpg", hsvThresholded);
 
     Mat greenTh = hsvThresholded;
 
@@ -145,10 +148,12 @@ int findOutDieCount(Mat & src) {
             data++;
         }
     }
+    imwrite("faze3.jpg", src);
 
     cvtColor(src, hsvImg, COLOR_BGR2HSV);
-
     hsvThreshold();
+    imwrite("faze4_1.jpg", hsvThresholded);
+
     Mat threshold_output;
     vector<vector<Point> > contours;
     vector<Vec4i> hierarchy;
@@ -169,6 +174,13 @@ int findOutDieCount(Mat & src) {
     Mat drawing = Mat::zeros(hsvThresholded.size(), CV_8UC3);
     RotatedRect die;
     vector<RotatedRect> points;
+    Mat special = Mat::zeros(hsvThresholded.size(), CV_8UC3);
+    for (int i = 0; i < contours.size(); i++) {
+        // ellipse
+        ellipse(special, minEllipse[i], Scalar(0,255,0), 2, 8);
+    }
+    imwrite("faze5.jpg", special);
+    special = Mat::zeros(hsvThresholded.size(), CV_8UC3);
     for (int i = 0; i < contours.size(); i++) {
         // ellipse
         //        ellipse(drawing, minEllipse[i], color, 2, 8);
@@ -177,12 +189,15 @@ int findOutDieCount(Mat & src) {
                 && minEllipse[i].size.height >= 55.0 && minEllipse[i].size.height <= 90.0) {
             //possible die
             die = minEllipse[i];
+            ellipse(special, minEllipse[i], Scalar(0, 0, 255), 2, 8);
         } else if (minEllipse[i].size.width >= 5.0 && minEllipse[i].size.width <= 13.0
                 && minEllipse[i].size.height >= 8.0 && minEllipse[i].size.height <= 17.0) {
             //possible point
             points.push_back(minEllipse[i]);
+            ellipse(special, minEllipse[i], Scalar(0, 255, 0), 2, 8);
         }
     }
+    imwrite("faze6.jpg", special);
     //draw die
     ellipse(drawing, die, Scalar(0, 0, 255), 3, 8);
     RotatedRect empiricEllipse = countBetterFit(die);
@@ -204,7 +219,7 @@ int findOutDieCount(Mat & src) {
     }
     /// Show in a window
     stringstream ss;
-    if (counter < 1 || counter > 6){
+    if (counter < 1 || counter > 6) {
         //fail
         counter = -1;
     }
@@ -212,6 +227,7 @@ int findOutDieCount(Mat & src) {
     ss << wC++ << " Result = " << counter;
     namedWindow(ss.str(), CV_WINDOW_AUTOSIZE);
     imshow(ss.str(), drawing);
+    imwrite("faze7.jpg", drawing);
     //===========================/debug output==================================
     return counter;
 }
@@ -287,7 +303,7 @@ void hsvThreshold() {
     //morphological closing (removes small holes from the foreground)
     dilate(pointThresholded, pointThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 3)));
     erode(pointThresholded, pointThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 3)));
-
+    imwrite("faze4_2.jpg", pointThresholded);
     hsvThresholded = hsvThresholded - pointThresholded;
 }
 
