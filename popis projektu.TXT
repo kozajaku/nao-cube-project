@@ -1,0 +1,50 @@
+====== NAO hraje hru s kostkou ======
+===== Tým =====
+**Adam Kugler**
+
+**Jakub Koza**
+===== Cíle =====
+Jako cíl našeho projektu jsme si zvolili vytvoøit jednoduchou hru s kostkou, pro dva nebo více hráèù, kde by se NAO aktivnì úèastnil hry a zárovìn vyhodnocoval výsledky (rozpoznal, co na kostce padlo, a urèil vítìze). Náplní tohoto projektu bylo vytvoøit modul pro rozpoznávání, co padlo na kostce, naplánovat pohyby a vše logicky sesadit dohromady v Choreographe.
+===== Analýza =====
+===== Øešení =====
+==== Rozpoznávání kostky ====
+==== Rekvizity ====
+=== Kostka ===
+Plyšová bílá kostka s èervenými puntíky, která je pøimìøenì veliká a mìkká, aby ji mohl robot uchopit.
+=== Krabice ===
+Krabice bez víka se zeleným vnitøkem a èerným vnìjškem. Slouží jako, podklad pro lepší rozpoznávání bez ohledu na prostøedí. Také zaruèuje, že kostka nepadne mimo zorný úhel robota.
+== Správné umístìní krabice ==
+Jakmile NAO stojí, je nutné umístit krabici tak, aby se robot dotýkal špièkami u nohou jejího delšího okraje, byla dnem na zemi a byla vycentrovaná na osu robota.
+==== Pohyby v Choreographe ====
+==== Logika v Choreographe ====
+===== Výsledky =====
+==== Hra ====
+=== Princip hry ===
+  * Hra pro 2 hráèe (NAO, èlovìk)
+  * Oba hází kostkou do krabice
+  * NAO rozpoznává, co padlo na kostce
+  * Vyhrává ten kdo hodí víc
+=== Prùbìh hry ===
+  - NAO vysvìtlí pravidla hry
+  - NAO je první na øadì
+  - NAO požádá o podání kostky
+  - Protihráè ho pohladí, když mu dá kostku
+  - NAO uchopí kostku a hodí ji do krabice
+  - NAO zaujme pozorovací pozici, poøídí snímek a rozpozná, co na kostce padlo
+  - NAO øekne, co rozpoznal a oznámí protihráèi, že mùže házet
+  - Protihráè hodí kostu do krabice a pohladí robota na znamení, že mùže zaèít rozpoznávat
+  - NAO zaujme pozorovací pozici, poøídí snímek a rozpozná, co na kostce padlo
+  - NAO øekne, co rozpoznal a oznámí protihráèi výsledek hry
+  - Hra pokraèuje od bodu 2
+
+  * Pokud dojde k chybì pøi rozpoznávání, NAO nevidí kostku, bude se hod opakovat
+  * Pokud dojde k chybì pøi rozpoznávání a NAO špatnì vyhodnotí, co padlo, hra pokraèuje dál, jako by to bylo správnì. Nepøedpokládá se, že by se NAO spletl. 
+
+==== Dílèí èásti ====
+=== Modul pro rozpoznávání kostky ===
+Modul, který je schopen, rozpoznat kostku zmiòovanou v èásti kostka, a urèit, kolik na ní padlo. Modul také pøedpokládá použití krabice se zeleným vnitøkem a specifickou pozici robota. 
+
+===== Možná rozšíøení =====
+
+
+
