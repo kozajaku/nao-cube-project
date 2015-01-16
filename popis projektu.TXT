@@ -4,10 +4,19 @@
 
 **Jakub Koza**
 ===== Cíle =====
-Jako cíl našeho projektu jsme si zvolili vytvoøit jednoduchou hru s kostkou, pro dva nebo více hráèù, kde by se NAO aktivnì úèastnil hry a zárovìn vyhodnocoval vısledky (rozpoznal, co na kostce padlo, a urèil vítìze). Náplní tohoto projektu bylo vytvoøit modul pro rozpoznávání, co padlo na kostce, naplánovat pohyby a vše logicky sesadit dohromady v Choreographe.
+Jako cíl našeho projektu jsme si zvolili vytvoøit jednoduchou hru s kostkou, pro dva nebo více hráèù, kde by se NAO aktivnì úèastnil hry a zárovìn vyhodnocoval vısledky (rozpoznal, co na kostce padlo, a urèil vítìze). Náplní tohoto projektu bylo vytvoøit modul pro rozpoznávání hodnoty padlé na kostce, naplánovat pohyby a vše logicky sesadit dohromady v Choreographe.
 ===== Analıza =====
+Pùvodní verze našeho projektu poèítala s vyuitím programu na rozpoznávání padlé hodnoty na kostce, kterou ji naprogramoval náš pøedchùdce Vojtìch Haur v jednom z pøedchozích semestrù. (link: https://edux.fit.cvut.cz/courses/MI-IVS/labs/mi_ivs_prj/rozpoznavani_kostky) Program byl celı napsán v programovacím jazyce Java, kterı ovládá robota pøes NAOqi's java binding, jinak známé jako JNaoQi. Bohuel pro naše úèely bylo potøeba kromì rozpoznávání kostky implementovat i motoriku robota, která by byla zbyteènì nároèná na implementaci v jazyce Java. Proto jsme se rozhodli, e vyuijeme nástroj Choreographe pro implementaci chování robota a celou èást rozpoznávání kostky implementujeme jako jeden modul, se kterım bude øešení v Choreographe pouze spolupracovat ve fázi, kdy je potøeba zjistit poèet bodù na kostce. Pro pouití tohoto øešení však bylo potøeba pøepsat rozpoznávání kostky, z Javy do C++ (pøípadnì Python), jeliko souèasné API neumoòuje napsání modulu v programovacím jazyce Java.
 ===== Øešení =====
+Veškerá motorika robota je implementována pomocí nástroje Choreographe, ve kterém se funkcionalita zadává pomocí spojování urèitıch funkèních èástí do jistého druhu flow diagramu. Kadá funkèní èást mùe mít více vstupù i vıstupù, a dokonce mohou ve svém vıstupu posílat hodnotu v urèeném datovém typu. Vıhodou je, e lze vytvoøit vlastní funkèní celek za pomoci programovacího jazyka Python, kterı v tomto projektu pouíváme napøíklad pro napojení na námi vytvoøenı modul pro rozpoznávání poètu bodù na kostce (programovanı v C++), nebo také pro prùbìné pamatování vısledkù hodù a vyhodnocení hry.
+
+Obecnì modul do robota NAO mùe bıt buï remote, nebo local. Remote znamená, e vlastní zdrojovı kód modulu bìí v poèítaèi, na kterém je remote modul spušìn a do robota je pouze nahrán proxy objekt, kterı poadavky deleguje skrze síové pøipojení na poèítaè za pomoci protokolu SOAP. Local modul bìí pøímo na robotovi a není tak potøeba ádnı pøenos po síti. Nevıhodou lokálního modulu je sloitìjší nasazování na robota, jeliko je nutné manuální pøekopírování do jeho pamìového uloištì napøíklad pomocí ssh. Pøepnutí mezi jednotlivımi typy modulù je pouze ve zmìnì konfiguraèního souboru pro kompilaci zdrojovıch kódù a je tedy nutné si pouze vybrat, zda pro rozpoznání vyuít vyššího vıkonu poèítaèe, avšak zpomalení na síti pøi pøenášení obrazu (remote modul), nebo zda nepøenášet po síti nic a nechat robota rozpoznat obraz na pomalejším procesoru robota. 
+
 ==== Rozpoznávání kostky ====
+Celı modul pro rozpoznávání poètu bodù na kostce je programovanı v jazyce C++ za pouití knihovny pro pokroèilé zpracování obrazu OpenCV. Modul má název DieModule a jeho rozhraní poskytuje jedinou funkci s názvem findOutThrownCount, která nemá ádné parametry a návratovou hodnotou je èíslo typu int. Toto èíslo se rovná buï rozpoznané hodnotì bodù padlé na kostce, nebo hodnotì -1, která signalizuje, e kostka na obrázku nebyla správnì rozpoznána (teoreticky vrací i hodnotu 0 v pøípadì, e se modulu nepodaøilo poøídit fotku jeho spodní kamerou, avšak toto by v reálném pøípadì nemìlo nastat).
+
+  
+
 ==== Rekvizity ====
 === Kostka ===
 Plyšová bílá kostka s èervenımi puntíky, která je pøimìøenì veliká a mìkká, aby ji mohl robot uchopit.
