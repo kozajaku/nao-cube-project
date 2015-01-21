@@ -13,8 +13,35 @@ Veškerá motorika robota je implementována pomocí nástroje Choreographe, ve které
 Obecnì modul do robota NAO mùe bıt buï remote, nebo local. Remote znamená, e vlastní zdrojovı kód modulu bìí v poèítaèi, na kterém je remote modul spušìn a do robota je pouze nahrán proxy objekt, kterı poadavky deleguje skrze síové pøipojení na poèítaè za pomoci protokolu SOAP. Local modul bìí pøímo na robotovi a není tak potøeba ádnı pøenos po síti. Nevıhodou lokálního modulu je sloitìjší nasazování na robota, jeliko je nutné manuální pøekopírování do jeho pamìového uloištì napøíklad pomocí ssh. Pøepnutí mezi jednotlivımi typy modulù je pouze ve zmìnì konfiguraèního souboru pro kompilaci zdrojovıch kódù a je tedy nutné si pouze vybrat, zda pro rozpoznání vyuít vyššího vıkonu poèítaèe, avšak zpomalení na síti pøi pøenášení obrazu (remote modul), nebo zda nepøenášet po síti nic a nechat robota rozpoznat obraz na pomalejším procesoru robota. 
 
 ==== Rozpoznávání kostky ====
-Celı modul pro rozpoznávání poètu bodù na kostce je programovanı v jazyce C++ za pouití knihovny pro pokroèilé zpracování obrazu OpenCV. Modul má název DieModule a jeho rozhraní poskytuje jedinou funkci s názvem findOutThrownCount, která nemá ádné parametry a návratovou hodnotou je èíslo typu int. Toto èíslo se rovná buï rozpoznané hodnotì bodù padlé na kostce, nebo hodnotì -1, která signalizuje, e kostka na obrázku nebyla správnì rozpoznána (teoreticky vrací i hodnotu 0 v pøípadì, e se modulu nepodaøilo poøídit fotku jeho spodní kamerou, avšak toto by v reálném pøípadì nemìlo nastat).
+Celı modul pro rozpoznávání poètu bodù na kostce je programovanı v jazyce C++ za pouití knihovny pro pokroèilé zpracování obrazu OpenCV. Modul má název //DieModule// a jeho rozhraní poskytuje jedinou funkci s názvem //findOutThrownCount//, která nemá ádné parametry a návratovou hodnotou je èíslo typu //int//. Toto èíslo se rovná buï rozpoznané hodnotì bodù padlé na kostce, nebo hodnotì -1, která signalizuje, e kostka na obrázku nebyla správnì rozpoznána (teoreticky vrací i hodnotu 0 v pøípadì, e se modulu nepodaøilo poøídit fotku jeho spodní kamerou, avšak toto by v reálném pøípadì nemìlo nastat).
 
+Rozpoznávání kostky z obrázku probíhá v nìkolika fázích, které budou popsány v následujícím textu na názorném pøíkladì. Toto je napøíklad obrázek kostky zachycenı spodní kamerou robota v rozlišení 640x480 pixelù:
+ 
+{{:student:kozajaku:faze1.jpg|}} 
+
+Na obrázku je moné si všimnout ještì prstù robota, které zde však v novìjší souèasné verzi programu vidìt nejsou, take nebrání rozpoznávání v pøípadì padnutí kostky do pøedních rohù krabice. Pro zpøesnìní vyhledání kostky na obrazu jsme vyuili zeleného pozadí krabice, take logicky prvním krokem je vyprahování pozadí a zanechání pouze tìch èástí obrazu, které by teoreticky mohly bıt kostkou. Pro dosaení tohoto vısledku je obraz nejdøíve pøeveden do HSV barevného schématu a následnì vyprahován do následujícího binárního obrazu pomocí mezí pro zelenou barvu vnitøku krabice (pro pøevod a prahování je vyuito OpenCV).
+
+{{:student:kozajaku:faze2.jpg|}} 
+
+Nyní lze pøedpokládat, e kostka se nachází uvnitø detekovaného pozadí, take pro zjednodušení následujícího zpracování lze odstranit èerné okraje binárního obrazu kolem detekovaného pozadí. Po vymaskování pozadí vypadá pùvodní obraz takto:
+
+{{:student:kozajaku:faze3.jpg|}} 
+
+ Z tohoto obrazu je nyní potøeba barevnì vyprahovat tìlo samotné kostky a bodíky, které se na kostce nachází. K tomu je opìt pouit stejnı zpùsob jako pøi vyprahovávání pozadí tedy pøevod do barevného schématu HSV a následnì pouití funkce OpenCV k vyprahování podle námi namìøenıch dolních a horních HSV mezí. Tyto meze jsou zadány ve zdrojovém kódu jako konstanty a lze je volnì upravovat v pøípadì zmìny hrací kostky. Vısledné vyprahované binární obrazy lze vidìt na následujících obrázcích.
+ 
+{{:student:kozajaku:faze4_1.jpg|}}  {{:student:kozajaku:faze4_2.jpg|}} 
+ 
+Dalším krokem je detekce hran na binárních obrazech s tìlem kostky a jejími body a nafitování elipsy na tyto hrany tak, abychom získali pøiblinı vektorovı pøehled o objektech, které se zde nacházejí. K tomuto kroku jsou pouity funkce //findContours// a //fitEllipse// z knihovny OpenCV. Následující obrázek demonstruje nalezení elips pomocí tìchto funkcí. 
+
+{{:student:kozajaku:faze5.jpg|}} 
+
+Na obraze je vidìt, e došlo k detekci i artefaktù zvláštních tvarù èi velikostí, o kterıch mùeme jistì øíci, e se nejedná o kostku nebo její body. Kadou elipsu tedy projdeme a oprahujeme podle rozmìrù na šíøku a na vıšku, abychom vyøadili elipsy, které jsou pøíliš malé (nepøesnosti v obraze), nebo naopak pøíliš velké (napøíklad velkı kruh z dùvodu pøesvìtlení vnitøku krabice). Podle velikosti také mùeme usoudit, zda se jedná o elipsu reprezentující tìlo kostky, nebo o elipsu reprezentující bod na kostce (musí mít správnou velikost a nacházet se uvnitø tìla kostky).
+
+{{:student:kozajaku:faze6.jpg|}} 
+
+Posledním nejzásadnìjším krokem je zjistit, které body detekované na kostce jsou na horní stìnì kostky. K tomuto úèelu vytvoøíme speciální novou elipsu reprezentující horní stìnu, která vychází z velikosti a polohy elipsy tìla kostky a následnì je její velikost (èásteènì i poloha) upravena podle polohy tìla kostky na obraze. Názornì èím více je kostka vlevo/vpravo od støedu nebo èím více je kostka na obraze vıše (chápejme dále od robota), tím je tato elipsa menší. Závislost na zmìnì polohy je lineární a lineární rovnice byly vypoèteny na základì praktického testování. Pøestoe tato metoda je velice jednoduchá, vykazuje velice dobré vısledky a prakticky selhává pouze v nìkterıch krajních pøípadech, kdy se kostka nachází ve velké vzdálenosti od robota a je specificky natoèena (napøíklad v zadním rohu). Nyní zbıvá jen spoètení elips na horní stìnì kostky a vrácení vısledku rozpoznávání.
+
+{{:student:kozajaku:faze7.jpg|}}  
   
 
 ==== Rekvizity ====
