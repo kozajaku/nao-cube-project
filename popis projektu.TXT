@@ -128,5 +128,10 @@ Protože hra byla až sekundární cíl tohoto projektu, nejsou pohyby ani prezentace
 ==== Jiná hra s kostkou ====
 Tato hra je v podstatì nejjednodušší, která se dá s kostkou hrát, ale jsou zde implementovány všechny dùležité stavební kameny, ze kterých lze celkem snadno vyrobit mnohem sofistikovanìjší hru.
 
+===== Soubory projektu =====
+{{:student:kozajaku:choreographe.zip|Choreographe soubory}}
 
+{{:student:kozajaku:remote_module.zip|Soubory pro sestavení remote modulu na rozpoznávání}}
+
+{{:student:kozajaku:local_module.zip|Soubory pro sestavení local modulu na rozpoznávání}} - z dùvodu nefunkèního pøipojení k robotovi a nemožnosti otestování na posledním cviku není zaruèena funkènost
 
