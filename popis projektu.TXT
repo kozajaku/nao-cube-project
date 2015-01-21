@@ -7,7 +7,7 @@
 Jako cíl našeho projektu jsme si zvolili vytvoøit jednoduchou hru s kostkou, pro dva nebo více hráèù, kde by se NAO aktivnì úèastnil hry a zárovìn vyhodnocoval vısledky (rozpoznal, co na kostce padlo, a urèil vítìze). Náplní tohoto projektu bylo vytvoøit modul pro rozpoznávání hodnoty padlé na kostce, naplánovat pohyby a vše logicky sesadit dohromady v Choreographe.
 
 ===== Analıza =====
-Pùvodní verze našeho projektu poèítala s vyuitím programu na rozpoznávání padlé hodnoty na kostce, kterou ji naprogramoval náš pøedchùdce Vojtìch Haur v jednom z pøedchozích semestrù. (link: https://edux.fit.cvut.cz/courses/MI-IVS/labs/mi_ivs_prj/rozpoznavani_kostky) Program byl celı napsán v programovacím jazyce Java, kterı ovládá robota pøes NAOqi's java binding, jinak známé jako JNaoQi. Bohuel pro naše úèely bylo potøeba kromì rozpoznávání kostky implementovat i motoriku robota, která by byla zbyteènì nároèná na implementaci v jazyce Java. Proto jsme se rozhodli, e vyuijeme nástroj Choreographe pro implementaci chování robota a celou èást rozpoznávání kostky implementujeme jako jeden modul, se kterım bude øešení v Choreographe pouze spolupracovat ve fázi, kdy je potøeba zjistit poèet bodù na kostce. Pro pouití tohoto øešení však bylo potøeba pøepsat rozpoznávání kostky, z Javy do C++ (pøípadnì Python), jeliko souèasné API neumoòuje napsání modulu v programovacím jazyce Java.
+Pùvodní verze našeho projektu poèítala s vyuitím programu na rozpoznávání padlé hodnoty na kostce, kterou ji naprogramoval náš pøedchùdce Vojtìch Haur v jednom z pøedchozích semestrù. (link: https://edux.fit.cvut.cz/courses/MI-IVS/labs/mi_ivs_prj/rozpoznavani_kostky) Program byl celı napsán v programovacím jazyce Java, kterı ovládá robota pøes NAOqi's java binding, jinak známé jako JNaoQi. Bohuel pro naše úèely bylo potøeba kromì rozpoznávání kostky implementovat i motoriku robota, která by byla zbyteènì nároèná na implementaci v jazyce Java. Proto jsme se rozhodli, e vyuijeme nástroj Choreographe pro implementaci chování robota a celou èást rozpoznávání kostky implementujeme jako jeden modul, se kterım bude øešení v Choreographe pouze spolupracovat ve fázi, kdy je potøeba zjistit poèet bodù na kostce. Pro pouití tohoto øešení však bylo potøeba pøepsat rozpoznávání kostky, z Javy do C++ (pøípadnì Python), jeliko souèasné API neumoòuje napsání modulu v programovacím jazyce Java. Nakonec jsme se pùvodním algoritmem pouze inspirovali a vymysleli jsme algoritmus vlastní s vyuitím pokroèilé analızy za pomoci OpenCV.
 
 ===== Rekvizity =====
 Vzhledem k tomu, e jsme vytváøeli hru s kostkou pro robota NAO museli jsme si opatøit nìkolik rekvizit. V první øadì to byla kostka, kterou nám zapùjèil pan doktor Skrbek, ale vzhledem k nešastné barvì vùèi podlaze v uèebnì (bílá/šedá), jsme museli vytvoøit také podklad kontrastní barvy ve formì krabice, co se pozdìji ukázalo jako velmi vıhodné.
@@ -59,6 +59,8 @@ Posledním nejzásadnìjším krokem je zjistit, které body detekované na kostce jsou
 
 ==== Choreographe ====
 Hlavním dùvodem pouití tohoto nástoroje byla snadná a elegantní práce s pohyby robota. Mìli jsme nìkolik úkolù, které bylo potøeba vyøešit.
+{{:student:kugleada:screen.png?800|}}
+
 === Interakce s robotem ===
 Uivatel interaguje s robotem, pomocí jeho tlakovıch senzorù a tím se posouvá do další fáze hry, jedná se o potvrzení, e hráè udìlal, co mu robot øekl (podání kostky/hod kostkou). Pùvodnì jsme chtìli (kvùli pøirozenosti) pouít i jiné tlakové senzory, ne ty na hlavì, ale ukázalo se, e jsou málo spolehlivé, proto pouíváme pouze prostøední tlakovı senzor na hlavì robota.
 
@@ -78,6 +80,8 @@ Rozhodli jsme se tedy pro kompromis mezi rozpoznáváním a pozicováním robota. Vıs
 == Házení kostkou ==
 Dùleitım pohybem je házení kostkou, které se skládá ze 3 pozic a otevírání/zavírání ruky. Jedná se vlastnì pouze o pohyb pravé ruky, zatímco robot stojí. Robot je odkázán na to, e mu uivatel kostku podá do ruky, on ji pak sevøe a hodí, nebo spíše upustí do krabice. Hod vypadá celkem pøirozenì, ale je velmi jednoduchı a moná by si zaslouil vylepšení, protoe kostka èasto padá do odlehlıch koutù krabice, kde je rozpoznávání nejménì spolehlivé.
 
+{{:student:kugleada:screen2.png?800|}}
+
 === Mluvení ===
 Samozøejmì celou hru doprovází NAO mluvením v èeštinì. Na zaèátku vysvìtlí pravidla, dále kontroluje prùbìh hry (øíká, kdo je na øadì) a hlásí jím rozpoznané vısledky (hodu nebo celé hry).
 
@@ -86,10 +90,6 @@ Logika je jistì správné pospojování krabièek v Choreographe, ale dùleitım probl
 
 == Zapamatování a vyhodnocení vısledkù ==
 Protoe se hra hraje na dva hody (hází robot/hází hráè), bylo nutné si uschovat vısledek prvního hodu a po druhém hodu vyhodnotit, kdo toto kolo vyhrál. K tomu sloí námi vytvoøenı script. Vyhodnocení celkového vısledku se muselo ještì synchronizovat s vyhodnocením vısledku druhého hodu.
-
-{{:student:kozajaku:screen.png?640|}} 
-
-{{:student:kozajaku:screen2.png?640|}}
 
 ===== Vısledky =====
 ==== Hra ====
