@@ -87,6 +87,10 @@ Logika je jistì správné pospojování krabièek v Choreographe, ale dùležitým probl
 == Zapamatování a vyhodnocení výsledkù ==
 Protože se hra hraje na dva hody (hází robot/hází hráè), bylo nutné si uschovat výsledek prvního hodu a po druhém hodu vyhodnotit, kdo toto kolo vyhrál. K tomu složí námi vytvoøený script. Vyhodnocení celkového výsledku se muselo ještì synchronizovat s vyhodnocením výsledku druhého hodu.
 
+{{:student:kozajaku:screen.png?640|}} 
+
+{{:student:kozajaku:screen2.png?640|}}
+
 ===== Výsledky =====
 ==== Hra ====
 === Princip hry ===
