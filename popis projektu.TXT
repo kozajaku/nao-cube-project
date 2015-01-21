@@ -1,16 +1,30 @@
 ====== NAO hraje hru s kostkou ======
 ===== Tım =====
-**Adam Kugler**
+**Adam Kugler**: definice pohybù a chování robota 
 
-**Jakub Koza**
+**Jakub Koza**: modul na rozpoznávání kostky, Python scripty
 ===== Cíle =====
 Jako cíl našeho projektu jsme si zvolili vytvoøit jednoduchou hru s kostkou, pro dva nebo více hráèù, kde by se NAO aktivnì úèastnil hry a zárovìn vyhodnocoval vısledky (rozpoznal, co na kostce padlo, a urèil vítìze). Náplní tohoto projektu bylo vytvoøit modul pro rozpoznávání hodnoty padlé na kostce, naplánovat pohyby a vše logicky sesadit dohromady v Choreographe.
+
 ===== Analıza =====
 Pùvodní verze našeho projektu poèítala s vyuitím programu na rozpoznávání padlé hodnoty na kostce, kterou ji naprogramoval náš pøedchùdce Vojtìch Haur v jednom z pøedchozích semestrù. (link: https://edux.fit.cvut.cz/courses/MI-IVS/labs/mi_ivs_prj/rozpoznavani_kostky) Program byl celı napsán v programovacím jazyce Java, kterı ovládá robota pøes NAOqi's java binding, jinak známé jako JNaoQi. Bohuel pro naše úèely bylo potøeba kromì rozpoznávání kostky implementovat i motoriku robota, která by byla zbyteènì nároèná na implementaci v jazyce Java. Proto jsme se rozhodli, e vyuijeme nástroj Choreographe pro implementaci chování robota a celou èást rozpoznávání kostky implementujeme jako jeden modul, se kterım bude øešení v Choreographe pouze spolupracovat ve fázi, kdy je potøeba zjistit poèet bodù na kostce. Pro pouití tohoto øešení však bylo potøeba pøepsat rozpoznávání kostky, z Javy do C++ (pøípadnì Python), jeliko souèasné API neumoòuje napsání modulu v programovacím jazyce Java.
+
+===== Rekvizity =====
+Vzhledem k tomu, e jsme vytváøeli hru s kostkou pro robota NAO museli jsme si opatøit nìkolik rekvizit. V první øadì to byla kostka, kterou nám zapùjèil pan doktor Skrbek, ale vzhledem k nešastné barvì vùèi podlaze v uèebnì (bílá/šedá), jsme museli vytvoøit také podklad kontrastní barvy ve formì krabice, co se pozdìji ukázalo jako velmi vıhodné.
+
+==== Kostka ====
+Plyšová bílá kostka s èervenımi puntíky, která je pøimìøenì veliká a mìkká, aby ji mohl robot uchopit.
+
+==== Krabice ====
+Krabice bez víka se zelenım vnitøkem a èernım vnìjškem. Slouí jako podklad pro lepší rozpoznávání bez ohledu na prostøedí. Také zaruèuje, e kostka nepadne mimo zornı úhel robota.
+
+=== Správné umístìní krabice ===
+Jakmile NAO stojí, je nutné umístit krabici tak, aby se robot dotıkal špièkami u nohou jejího delšího okraje, byla dnem na zemi a byla vycentrovaná na osu robota.
+
 ===== Øešení =====
 Veškerá motorika robota je implementována pomocí nástroje Choreographe, ve kterém se funkcionalita zadává pomocí spojování urèitıch funkèních èástí do jistého druhu flow diagramu. Kadá funkèní èást mùe mít více vstupù i vıstupù, a dokonce mohou ve svém vıstupu posílat hodnotu v urèeném datovém typu. Vıhodou je, e lze vytvoøit vlastní funkèní celek za pomoci programovacího jazyka Python, kterı v tomto projektu pouíváme napøíklad pro napojení na námi vytvoøenı modul pro rozpoznávání poètu bodù na kostce (programovanı v C++), nebo také pro prùbìné pamatování vısledkù hodù a vyhodnocení hry.
 
-Obecnì modul do robota NAO mùe bıt buï remote, nebo local. Remote znamená, e vlastní zdrojovı kód modulu bìí v poèítaèi, na kterém je remote modul spušìn a do robota je pouze nahrán proxy objekt, kterı poadavky deleguje skrze síové pøipojení na poèítaè za pomoci protokolu SOAP. Local modul bìí pøímo na robotovi a není tak potøeba ádnı pøenos po síti. Nevıhodou lokálního modulu je sloitìjší nasazování na robota, jeliko je nutné manuální pøekopírování do jeho pamìového uloištì napøíklad pomocí ssh. Pøepnutí mezi jednotlivımi typy modulù je pouze ve zmìnì konfiguraèního souboru pro kompilaci zdrojovıch kódù a je tedy nutné si pouze vybrat, zda pro rozpoznání vyuít vyššího vıkonu poèítaèe, avšak zpomalení na síti pøi pøenášení obrazu (remote modul), nebo zda nepøenášet po síti nic a nechat robota rozpoznat obraz na pomalejším procesoru robota. 
+Obecnì modul do robota NAO mùe bıt buï remote, nebo local. Remote znamená, e vlastní zdrojovı kód modulu bìí v poèítaèi, na kterém je remote modul spuštìn a do robota je pouze nahrán proxy objekt, kterı poadavky deleguje skrze síové pøipojení na poèítaè za pomoci protokolu SOAP. Local modul bìí pøímo na robotovi a není tak potøeba ádnı pøenos po síti. Nevıhodou lokálního modulu je sloitìjší nasazování na robota, jeliko je nutné manuální pøekopírování do jeho pamìového uloištì napøíklad pomocí ssh. Pøepnutí mezi jednotlivımi typy modulù je pouze ve zmìnì konfiguraèního souboru pro kompilaci zdrojovıch kódù a je tedy nutné si pouze vybrat, zda pro rozpoznání vyuít vyššího vıkonu poèítaèe, avšak zpomalení na síti pøi pøenášení obrazu (remote modul), nebo zda nepøenášet po síti nic a nechat robota rozpoznat obraz na pomalejším procesoru robota. 
 
 ==== Rozpoznávání kostky ====
 Celı modul pro rozpoznávání poètu bodù na kostce je programovanı v jazyce C++ za pouití knihovny pro pokroèilé zpracování obrazu OpenCV. Modul má název //DieModule// a jeho rozhraní poskytuje jedinou funkci s názvem //findOutThrownCount//, která nemá ádné parametry a návratovou hodnotou je èíslo typu //int//. Toto èíslo se rovná buï rozpoznané hodnotì bodù padlé na kostce, nebo hodnotì -1, která signalizuje, e kostka na obrázku nebyla správnì rozpoznána (teoreticky vrací i hodnotu 0 v pøípadì, e se modulu nepodaøilo poøídit fotku jeho spodní kamerou, avšak toto by v reálném pøípadì nemìlo nastat).
@@ -19,7 +33,7 @@ Rozpoznávání kostky z obrázku probíhá v nìkolika fázích, které budou popsány v n
  
 {{:student:kozajaku:faze1.jpg|}} 
 
-Na obrázku je moné si všimnout ještì prstù robota, které zde však v novìjší souèasné verzi programu vidìt nejsou, take nebrání rozpoznávání v pøípadì padnutí kostky do pøedních rohù krabice. Pro zpøesnìní vyhledání kostky na obrazu jsme vyuili zeleného pozadí krabice, take logicky prvním krokem je vyprahování pozadí a zanechání pouze tìch èástí obrazu, které by teoreticky mohly bıt kostkou. Pro dosaení tohoto vısledku je obraz nejdøíve pøeveden do HSV barevného schématu a následnì vyprahován do následujícího binárního obrazu pomocí mezí pro zelenou barvu vnitøku krabice (pro pøevod a prahování je vyuito OpenCV).
+Na obrázku je moné si všimnout ještì prstù robota, které zde však v novìjší souèasné verzi programu vidìt nejsou (ruce byly posunuty více dozadu), take nebrání rozpoznávání v pøípadì padnutí kostky do pøedních rohù krabice. Pro zpøesnìní vyhledání kostky na obrazu jsme vyuili zeleného pozadí krabice, take logicky prvním krokem je vyprahování pozadí a zanechání pouze tìch èástí obrazu, které by teoreticky mohly bıt kostkou. Pro dosaení tohoto vısledku je obraz nejdøíve pøeveden do HSV barevného schématu a následnì vyprahován do následujícího binárního obrazu pomocí mezí pro zelenou barvu vnitøku krabice (pro pøevod a prahování je vyuito OpenCV).
 
 {{:student:kozajaku:faze2.jpg|}} 
 
@@ -39,20 +53,40 @@ Na obraze je vidìt, e došlo k detekci i artefaktù zvláštních tvarù èi velikostí
 
 {{:student:kozajaku:faze6.jpg|}} 
 
-Posledním nejzásadnìjším krokem je zjistit, které body detekované na kostce jsou na horní stìnì kostky. K tomuto úèelu vytvoøíme speciální novou elipsu reprezentující horní stìnu, která vychází z velikosti a polohy elipsy tìla kostky a následnì je její velikost (èásteènì i poloha) upravena podle polohy tìla kostky na obraze. Názornì èím více je kostka vlevo/vpravo od støedu nebo èím více je kostka na obraze vıše (chápejme dále od robota), tím je tato elipsa menší. Závislost na zmìnì polohy je lineární a lineární rovnice byly vypoèteny na základì praktického testování. Pøestoe tato metoda je velice jednoduchá, vykazuje velice dobré vısledky a prakticky selhává pouze v nìkterıch krajních pøípadech, kdy se kostka nachází ve velké vzdálenosti od robota a je specificky natoèena (napøíklad v zadním rohu). Nyní zbıvá jen spoètení elips na horní stìnì kostky a vrácení vısledku rozpoznávání.
+Posledním nejzásadnìjším krokem je zjistit, které body detekované na kostce jsou na horní stìnì kostky. K tomuto úèelu vytvoøíme speciální novou elipsu reprezentující horní stìnu, která vychází z velikosti a polohy elipsy tìla kostky a následnì je její velikost (èásteènì i poloha) upravena podle polohy tìla kostky na obraze. Názornì èím více je kostka vlevo/vpravo od støedu nebo èím více je kostka na obraze vıše (chápejme dále od robota), tím je tato elipsa menší. Závislost na zmìnì polohy je lineární a lineární rovnice byly vypoèteny na základì praktického testování. Pøestoe tato metoda je velice jednoduchá, vykazuje velice dobré vısledky a prakticky selhává pouze v nìkterıch krajních pøípadech, kdy se kostka nachází ve velké vzdálenosti od robota a je specificky natoèena (napøíklad v zadním rohu). Nyní zbıvá jen spoètení poètu elips na horní stìnì kostky a vrácení vısledku rozpoznávání.
 
 {{:student:kozajaku:faze7.jpg|}}  
-  
 
-==== Rekvizity ====
-=== Kostka ===
-Plyšová bílá kostka s èervenımi puntíky, která je pøimìøenì veliká a mìkká, aby ji mohl robot uchopit.
-=== Krabice ===
-Krabice bez víka se zelenım vnitøkem a èernım vnìjškem. Slouí jako, podklad pro lepší rozpoznávání bez ohledu na prostøedí. Také zaruèuje, e kostka nepadne mimo zornı úhel robota.
-== Správné umístìní krabice ==
-Jakmile NAO stojí, je nutné umístit krabici tak, aby se robot dotıkal špièkami u nohou jejího delšího okraje, byla dnem na zemi a byla vycentrovaná na osu robota.
-==== Pohyby v Choreographe ====
-==== Logika v Choreographe ====
+==== Choreographe ====
+Hlavním dùvodem pouití tohoto nástoroje byla snadná a elegantní práce s pohyby robota. Mìli jsme nìkolik úkolù, které bylo potøeba vyøešit.
+=== Interakce s robotem ===
+Uivatel interaguje s robotem, pomocí jeho tlakovıch senzorù a tím se posouvá do další fáze hry, jedná se o potvrzení, e hráè udìlal, co mu robot øekl (podání kostky/hod kostkou). Pùvodnì jsme chtìli (kvùli pøirozenosti) pouít i jiné tlakové senzory, ne ty na hlavì, ale ukázalo se, e jsou málo spolehlivé, proto pouíváme pouze prostøední tlakovı senzor na hlavì robota.
+
+=== Pohyby ===
+Základní otázkou bylo, jak se bude robot hıbat, aby vypadal pøirozenì.
+
+== Vypnutí samovolnıch pohybù ==
+Samovolné pohyby jsou jistì efektní a pøirozené, ale pro naše úèely jsme potøebovali, aby se robot díval kam má a nestrkal ruce kam nemá, proto bylo nutné veškeré samovolné pohyby robota vypnout.
+
+== Pozice pøi rozpoznávání ==
+Mìli jsme dvì monosti. Buï jsme mohli kostku rozpoznávat z jakékoli pozice, co by mìlo vyšší nároky na rozpoznávání a potøebovali bychom záruku toho, e se kostka nachází v zorném poli robota, nebo jsme mohli zvolit specifickou pozici, ze které budu rozpoznáváni probíhat. Našim potøebám lépe vyhovovala druhá monost, proto jsme ji také zvolili. 
+
+V této fázi jsme ji vìdìli, e se robot bude dívat do krabice. Chtìli jsme samozøejmì vymyslet pozici, ze které bude rozpoznávání nejsnazší. Nejlépe by nám vyhovoval snímek poøízenı kolmo na vrchní stranu kostky. Robotova hlava by se tedy musela dostat pøímo nad kostku/krabici, ale robot nemá ohebnı trup, tudí by se do této polohy dostával velmi obtínì, a navíc by to nevypadalo pøirozenì a stínil by si svou vlastní hlavou.
+
+Rozhodli jsme se tedy pro kompromis mezi rozpoznáváním a pozicováním robota. Vısledná poloha je velmi jednoduchá a pøirozená. Jedná se o základní postoj robota poté co vstane a maximálnì skloní hlavu. Trik spoèívá v tom, e snímek se poøídí spodní kamerou. K našemu pøekvapení tento snímek zachycuje celou krabici s minimálními okraji okolního prostøedí.
+
+== Házení kostkou ==
+Dùleitım pohybem je házení kostkou, které se skládá ze 3 pozic a otevírání/zavírání ruky. Jedná se vlastnì pouze o pohyb pravé ruky, zatímco robot stojí. Robot je odkázán na to, e mu uivatel kostku podá do ruky, on ji pak sevøe a hodí, nebo spíše upustí do krabice. Hod vypadá celkem pøirozenì, ale je velmi jednoduchı a moná by si zaslouil vylepšení, protoe kostka èasto padá do odlehlıch koutù krabice, kde je rozpoznávání nejménì spolehlivé.
+
+=== Mluvení ===
+Samozøejmì celou hru doprovází NAO mluvením v èeštinì. Na zaèátku vysvìtlí pravidla, dále kontroluje prùbìh hry (øíká, kdo je na øadì) a hlásí jím rozpoznané vısledky (hodu nebo celé hry).
+
+=== Logika ===
+Logika je jistì správné pospojování krabièek v Choreographe, ale dùleitım problémem bylo, jak si pamatovat a vyhodnocovat vısledky hry. K tomu bylo nutné vytvoøit Python script.
+
+== Zapamatování a vyhodnocení vısledkù ==
+Protoe se hra hraje na dva hody (hází robot/hází hráè), bylo nutné si uschovat vısledek prvního hodu a po druhém hodu vyhodnotit, kdo toto kolo vyhrál. K tomu sloí námi vytvoøenı script. Vyhodnocení celkového vısledku se muselo ještì synchronizovat s vyhodnocením vısledku druhého hodu.
+
 ===== Vısledky =====
 ==== Hra ====
 === Princip hry ===
@@ -64,7 +98,7 @@ Jakmile NAO stojí, je nutné umístit krabici tak, aby se robot dotıkal špièkami u
   - NAO vysvìtlí pravidla hry
   - NAO je první na øadì
   - NAO poádá o podání kostky
-  - Protihráè ho pohladí, kdy mu dá kostku
+  - Protihráè mu dá kostku a pohladí ho na hlavì, aby robot kostku uchopil
   - NAO uchopí kostku a hodí ji do krabice
   - NAO zaujme pozorovací pozici, poøídí snímek a rozpozná, co na kostce padlo
   - NAO øekne, co rozpoznal a oznámí protihráèi, e mùe házet
@@ -78,9 +112,17 @@ Jakmile NAO stojí, je nutné umístit krabici tak, aby se robot dotıkal špièkami u
 
 ==== Dílèí èásti ====
 === Modul pro rozpoznávání kostky ===
-Modul, kterı je schopen, rozpoznat kostku zmiòovanou v èásti kostka, a urèit, kolik na ní padlo. Modul také pøedpokládá pouití krabice se zelenım vnitøkem a specifickou pozici robota. 
+Modul, kterı je schopen, rozpoznat kostku zmiòovanou v èásti kostka, a urèit, kolik na ní padlo. Modul také pøedpokládá pouití krabice se zelenım vnitøkem a specifickou pozici robota. Modul musí bıt zaregistrován na robotovi ve chvíli spouštìní chování z Choreographe, jinak spuštìní skonèí s chybou. Nezáleí na tom, zda je modul nasazen jako lokální pøímo na robotovi, nebo zda je na robotovi pouze zaregistrovanı proxy vzdálenı modul spojenı síovım spojením s poèítaèem.
 
-===== Moná rozšíøení =====
+===== Moná vylepšení a rozšíøení =====
+==== Vylepšení rozpoznávacího algoritmu ====
+V souèasné dobì je rozpoznávací algoritmus hodnì vázán na rozpoznání kostky v krabici se zelenım vnitøkem. V pøípadnıch budoucích verzích by bylo vhodné se od tohoto øešení odprostit a zdokonalit algoritmus na rozpoznání kostky na libovolném povrchu.
+
+==== Vylepšení pohybù a prezentace robota ====
+Protoe hra byla a sekundární cíl tohoto projektu, nejsou pohyby ani prezentace robota moc propracovány, je to spíše taková kostra. Urèitì by stálo za to podání této hry vylepšit; a u lepšími komentáøi robota, nebo propracovanìjšími pohyby, tøeba i bìhem analızy obrazu.
+
+==== Jiná hra s kostkou ====
+Tato hra je v podstatì nejjednodušší, která se dá s kostkou hrát, ale jsou zde implementovány všechny dùleité stavební kameny, ze kterıch lze celkem snadno vyrobit mnohem sofistikovanìjší hru.
 
 
 
